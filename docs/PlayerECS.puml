@@ -1,0 +1,93 @@
+@startuml
+component "Player Game Object" {
+    note top of Features : "Features are data driven and provides an interface for updating data and notification"
+    component Features {
+
+        class Health {
+            - ScriptableObject HealthData
+            + addHealth
+            + subtractHealth
+            + onHealthChange
+            + onDeath
+            ...
+        }
+        
+        class Abilities {
+            - List<Ability> activeAbilities
+            - List<Ability> availableAbilities
+            ...
+        }
+                
+        class Level {
+            - ScriptableObject LevelData
+            + getCurrentLevel()
+            + getLevelProgress()
+        }
+        
+        class Weapons {
+            - List<ScriptableObject> WeaponData
+            + getWeapons()
+            ...
+        }
+        
+        class MovementInput {
+            - InputActions
+            - MovementData
+            + getMovement()
+        }
+    }
+    
+    note top of Behaviours : "Behaviours depends on specific features"
+    component Behaviours {
+        
+        class Damageable {
+            - Health
+            - Abilities
+            + InflictDamage()
+        }
+        
+        class Collector {
+            - CollectorRadius
+            - Abilities
+            - Weapons
+            + Pickup()
+        }
+        
+        class Attacker {
+            - Weapons
+            - Abilities
+            + Attack()
+        }
+        
+        class PlayerUI {
+            - Health
+            - Abilities
+            - Level
+            ...
+        }
+        
+        class Movement {
+            - MovementInput
+            - Abilities
+            + Move()
+        }
+    }
+    
+    Health <-- Damageable
+    Abilities <-- Damageable
+    
+    Abilities <-- Collector
+    Weapons <-- Collector
+    Level <-- Collector
+    
+    Weapons <-- Attacker
+    Abilities <-- Attacker
+    
+    Health <-- PlayerUI
+    Level <-- PlayerUI
+    Abilities <-- PlayerUI
+    
+    MovementInput <-- Movement
+    Abilities <-- Movement
+}
+@enduml

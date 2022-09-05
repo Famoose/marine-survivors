@@ -1,0 +1,66 @@
+@startuml
+component "Player Game Object" {
+    note top of Features : "Features are data driven and provides an interface for updating data and notification"
+    component Features {
+
+        class Health {
+            - ScriptableObject HealthData
+            + addHealth
+            + subtractHealth
+            + onHealthChange
+            + onDeath
+            ...
+        }
+        
+        class CollisionDamage {
+            - ScriptableObject CollisionDamageData
+            + getCollisionDamage()
+            ...
+        }
+        
+        class Weapons {
+            - List<ScriptableObject> WeaponData
+            + getWeapons()
+            ...
+        }
+        
+        class AIMovementInput {
+            - InputAction
+            - MovementData
+            + getMovement()
+        }
+    }
+    
+    note top of Behaviours : "Behaviours depends on specific features"
+    component Behaviours {
+        
+        class Damageable {
+            - Health
+            + InflictDamage()
+        }
+        
+        class Attacker {
+            - Weapons
+            + Attack()
+        }
+        
+        class Movement {
+            - MovementInput
+            + Move()
+        }
+        
+        class DamageInflicter {
+            - CollisionDamage
+        }
+    }
+    
+    Health <-- Damageable
+    
+    Weapons <-- Attacker
+    
+    AIMovementInput <-- Movement
+    
+    CollisionDamage <-- DamageInflicter
+    
+}
+@enduml

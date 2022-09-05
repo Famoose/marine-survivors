@@ -1,0 +1,83 @@
+@startuml
+component "PlayerObject" {
+    component Model {
+        class WeaponStats {
+            - float speed
+            - float radius
+            - float damage
+            - float interval
+        }
+        
+        class "Weapon:ScriptableObject" as ws {
+            - WeaponProjectile weaponProjectile
+            - List<WeaponStats> weaponStats
+            + String name
+            + int level
+            + getMaxLevel()
+            + getWeaponStat
+        }
+        ws --> WeaponStats
+    }
+    
+    component Feature as f1 {
+        class Weapons {
+            - List<Weapon> activeWeapons
+            - List<Weapon> availableWeapons
+            + getActiveWeapons()
+            + spawnWeapon()
+        }
+    }
+    
+    component Behaviour as b1 {
+        class Attacker {
+            - Abilities
+            - Weapons
+            - BehaviourModification AttackModification
+            - CalculateAttackWithModification()
+            + Attack()
+        }
+    }
+    
+    Attacker --> Weapons
+}
+
+component WeaponProjectileObject {
+    
+    component Feature as f2 {
+    
+        class WeaponProjectile {
+            - WeaponStats | Weapon TBD
+        }
+        
+        class ProjectileMovementInput {
+            - MovementInput
+            + Move()
+        }
+        
+        class CollisionDamage {
+            - ScriptableObject CollisionDamageData
+            + getCollisionDamage()
+            + setCollisionRadius()
+            ...
+        }
+    }
+    
+    component Behaviour as b2 {
+    
+        class DamageInflicter {
+            - CollisionDamage
+        }
+        
+        class Movement {
+            - ProjectileMovementInput
+        }
+    }
+    
+    CollisionDamage <-- DamageInflicter
+    ProjectileMovementInput <-- Movement
+}
+
+ws --> WeaponProjectileObject
+Weapons --> ws
+
+@enduml

@@ -1,0 +1,64 @@
+@startuml
+component Model {
+    class "BehaviourModification:ScriptableObject" as bm {
+    
+    }
+    
+    interface "ValueModifier:ScriptableObject" as vm {
+        + getModifiedValue(amount)
+    }
+    
+    class "NumericValueModifier:ValueModifier" as nvm {
+        + float amount
+    }
+    
+    class ""factorValueModifier:ValueModifier" as fvm {
+        + float factor
+    }
+    
+    class "NumericTimeoutValueModifier:ValueModifier" as ntvm {
+        + float amount
+        + float timout
+        - float lastInvocation
+    }
+    
+    vm <.. ntvm
+    vm <.. nvm 
+    vm <.. fvm
+    vm <.. ntvm
+    
+    class "Ability:ScriptableObject" as abs {
+        - BehaviourModification modifier
+        - List<ValueModifier>
+        + String name
+        + int level
+        + getMaxLevel()
+    }
+}
+
+component Feature {
+    class Abilities {
+        - List<Ability> activeAbilities
+        - List<Ability> availableAbilities
+        + getAbilityByModifier<Modifier>()
+    }
+}
+
+component Behaviour {
+    class Damageable {
+        - Abilities
+        - Health
+        - BehaviourModification DamageModification
+        - CalculateDamageWithModification()
+        + InflictDamage
+    }
+}
+
+ 
+Abilities --> abs
+Damageable --> Abilities
+abs --> vm
+Damageable --> bm
+abs --> bm
+
+@enduml

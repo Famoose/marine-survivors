@@ -1,0 +1,39 @@
+@startuml
+
+title Top Level Architecture
+
+component GameController as gc
+component Player as p
+interface IEnemy as ie
+component Enemy as e
+component EnemyWaveConfig as emc
+component Health as h
+component Weapon as w
+component Chest as c
+component Ability as a
+interface Pickupable as pick
+component ExpPerl as exp
+component Collector as coll
+
+ie -- e : implements
+gc --> emc : has
+emc --> ie : use
+
+gc ----> p : refers
+
+c -- pick : implements
+exp -- pick : implements
+
+p -- a : has
+p -- w : has
+p -- h : has
+p -- coll : has
+coll -- pick : pickup
+
+e -- h : has
+e -- c : drop
+e -- w : has
+e -- exp : drop
+
+
+@enduml
