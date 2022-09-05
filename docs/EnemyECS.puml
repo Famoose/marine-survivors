@@ -1,5 +1,5 @@
 @startuml
-component "Player Game Object" {
+component "Enemy Game Object" {
     note top of Features : "Features are data driven and provides an interface for updating data and notification"
     component Features {
 

@@ -25,7 +25,6 @@ component Model {
     vm <.. ntvm
     vm <.. nvm 
     vm <.. fvm
-    vm <.. ntvm
     
     class "Ability:ScriptableObject" as abs {
         - BehaviourModification modifier
