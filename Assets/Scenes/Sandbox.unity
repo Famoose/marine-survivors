@@ -91859,21 +91859,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1331708049}
     m_Modifications:
-    - target: {fileID: 2009589432637809336, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.108
-      objectReference: {fileID: 0}
     - target: {fileID: 5633139343081844440, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5633139343081844440, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5633139343081844440, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5633139343081844440, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
       propertyPath: m_LocalPosition.x
@@ -91919,74 +91907,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 6596142576851815119, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6596142576851815119, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_Intensity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_FalloffIntensity
-      value: 0.581
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_LightVolumeIntensity
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_PointLightInnerAngle
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_PointLightOuterAngle
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_PointLightInnerRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_PointLightOuterRadius
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_ShadowIntensityEnabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_LightVolumeIntensityEnabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_ShadowVolumeIntensityEnabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[0]
-      value: 916432865
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[2]
-      value: -1327080843
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181966701926457268, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[3]
-      value: -175265617
-      objectReference: {fileID: 0}
     - target: {fileID: 7388919501434285819, guid: c9b5eba1c588f1c48977af47ce1a1d49, type: 3}
       propertyPath: m_Name
       value: Player
