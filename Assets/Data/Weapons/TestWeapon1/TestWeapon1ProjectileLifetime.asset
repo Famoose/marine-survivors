@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba22fdadd814f7193eff85e5501bc7c, type: 3}
-  m_Name: PlayerMovementData
+  m_Script: {fileID: 11500000, guid: cef82e3dfb724a83ad3b12e9f166f570, type: 3}
+  m_Name: TestWeapon1ProjectileLifetime
   m_EditorClassIdentifier: 
-  speed: 1
-  movement: {x: 0, y: 0}
-  movementType: 0
+  value: 5

@@ -1,34 +1,57 @@
+using System;
 using Data;
+using Data.Enum;
 using Feature;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Behaviour
 {
     public class MovementBehaviour : MonoBehaviour
     {
         [SerializeField]
-        private MovementInputFeature movementInputFeature;
-        private Rigidbody2D _rb;
-        private SpriteRenderer _sr;
+        private MovementFeature movementFeature;
+        private Rigidbody2D _rigidbody;
+
+        private void Awake()
+        {
+            if (movementFeature == null)
+            {
+                throw new ArgumentException("No MovementInputFeature is defined");
+            }
+        }
 
         private void Start()
         {
-            _rb = GetComponent<Rigidbody2D>();
-            _sr = GetComponent<SpriteRenderer>();
+            _rigidbody = GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
         {
-            MovementData data = movementInputFeature.GetMovementData();
-            Debug.Log("${data.playerMovement.x}, ${data.playerMovement.y}");
-            _rb.MovePosition(_rb.position + data.playerMovement * (data.playerSpeed * Time.fixedDeltaTime));
+            MovementData data = movementFeature.GetMovementData();
+
+            switch (data.movementType)
+            {
+                case MovementType.Constant:
+                    // Move for a constant value in the current direction
+                    movementFeature.ApplyConstantMovement();
+                    break;
+                case MovementType.ToPlayersDirection:
+                    // TODO: Move towards the player
+                    throw new NotImplementedException();
+            }
+
+            _rigidbody.MovePosition(_rigidbody.position + data.movement * Time.fixedDeltaTime);
         }
         
         void OnMove(InputValue value)
         {
-            Debug.Log("move");
-            movementInputFeature.SetPlayerMovement(value.Get<Vector2>());
+            // Listen to player keyboard input
+            if (movementFeature.GetMovementData().movementType == MovementType.PlayerInput)
+            {
+                movementFeature.SetMovement(value.Get<Vector2>());   
+            }
         }
 
     }

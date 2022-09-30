@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e5d2877b3413f83a9bb7a265fc57e, type: 3}
+  m_Name: TestWeapon1LevelData
+  m_EditorClassIdentifier: 
+  weaponName: Test Waffe 1
+  perLevelWeaponData:
+  - coolDownTime: 3
+    currentCoolDownTime: 0
+    prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
