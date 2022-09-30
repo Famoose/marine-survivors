@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Data
 {
     
-    [CreateAssetMenu(fileName = "LevelData", menuName = "FeatureData/HealthData", order = 1)]
+    [CreateAssetMenu(fileName = "LevelData", menuName = "FeatureData/LevelData", order = 1)]
     public class LevelData : ScriptableObject
     {
         public int currentLevel = 1;
