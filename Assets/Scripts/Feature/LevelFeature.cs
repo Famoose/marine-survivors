@@ -11,6 +11,14 @@ namespace Feature
         public UnityEvent<int> onLevelChange;
         public UnityEvent onExperienceChange;
 
+        private void Awake()
+        {
+            if (levelData == null)
+            {
+                throw new ArgumentException("levelData was null");
+            }
+        }
+
         public int GetLevel()
         {
             return levelData.currentLevel;

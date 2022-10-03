@@ -1,3 +1,4 @@
+using System;
 using Data;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,6 +12,14 @@ namespace Feature
         public UnityEvent<float> onHealthChange;
         public UnityEvent onDeath;
 
+        private void Awake()
+        {
+            if (healthData == null)
+            {
+                throw new ArgumentException("healthData was null");
+            }
+        }
+        
         public float GetHealth()
         {
             return healthData.health;

@@ -55,5 +55,10 @@ namespace Feature
         {
             _data.movement = _data.movement.normalized * _data.speed;
         }
+
+        public void SetMovementData(MovementData data)
+        {
+            _data = data;
+        }
     }
 }

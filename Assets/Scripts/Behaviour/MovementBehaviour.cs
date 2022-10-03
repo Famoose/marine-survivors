@@ -15,17 +15,48 @@ namespace Behaviour
         [SerializeField] private AbilityFeature abilityFeature;
         private Rigidbody2D _rigidbody;
 
+        // modification value
+        private float _movementModificationFactor = 1;
+
         private void Awake()
         {
             if (movementFeature == null)
             {
                 throw new ArgumentException("No MovementInputFeature is defined");
             }
+
+            if (abilityFeature == null)
+            {
+                throw new ArgumentException("No abilityFeature is defined");
+            }
         }
 
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            if (abilityFeature && movementModification)
+            {
+                CalculateMovementModification();
+                //could be improved by check if ability is related to movement
+                abilityFeature.onAbilityActivated.AddListener(ad => CalculateMovementModification());
+                abilityFeature.onAbilityLevelUp.AddListener(ad => CalculateMovementModification());
+            }
+        }
+
+        private void CalculateMovementModification()
+        {
+            float factor = 1;
+            foreach (AbilityData abilityData in abilityFeature.GetActiveAbilityByModification(movementModification))
+            {
+                var valueModifier = abilityData.GetValueModifier();
+                //movement only supports factor
+                if (valueModifier.type == ValueModifierType.FACTOR)
+                {
+                    factor *= valueModifier.value;
+                }
+            }
+
+            _movementModificationFactor = factor;
         }
 
         private void FixedUpdate()
@@ -43,7 +74,8 @@ namespace Behaviour
                     throw new NotImplementedException();
             }
 
-            _rigidbody.MovePosition(_rigidbody.position + data.movement * Time.fixedDeltaTime);
+            _rigidbody.MovePosition(_rigidbody.position +
+                                    data.movement * (Time.fixedDeltaTime * _movementModificationFactor));
         }
 
         void OnMove(InputValue value)
@@ -51,7 +83,7 @@ namespace Behaviour
             // Listen to player keyboard input
             if (movementFeature.GetMovementData().movementType == MovementType.PlayerInput)
             {
-                movementFeature.SetMovement(value.Get<Vector2>());   
+                movementFeature.SetMovement(value.Get<Vector2>());
             }
         }
     }
