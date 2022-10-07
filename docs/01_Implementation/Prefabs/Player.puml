@@ -8,6 +8,17 @@ package Player {
     [Owned Weapon Feature 1] as weaponFea1
     [Owned Weapon Feature 2] as weaponFea2
     [Owned Weapon Feature n] as weaponFean
+    [Ability Feature] as abilityFea
 }
+
+movementBeh -- movementFea
+movementBeh -- abilityFea
+
+armedBeh -- weaponFea1
+armedBeh -- weaponFea2
+armedBeh -- weaponFean
+armedBeh -- abilityFea
+
+playerInput .. movementBeh
 
 @enduml

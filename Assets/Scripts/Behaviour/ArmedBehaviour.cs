@@ -11,12 +11,19 @@ namespace Behaviour
     public class ArmedBehaviour : MonoBehaviour
     {
         [SerializeField] private List<OwnedWeaponFeature> activeWeapons;
+        [SerializeField] private AbilityFeature abilityFeature;
 
         public void Awake()
         {
             if (activeWeapons == null || !activeWeapons.Any())
             {
                 throw new ArgumentException("At least one weapon has to be active.");
+            }
+            
+            // TODO: transfer and use abilities
+            if (abilityFeature == null)
+            {
+                throw new ArgumentException("No abilityFeature is defined");
             }
             
             foreach (OwnedWeaponFeature weaponFeature in activeWeapons)

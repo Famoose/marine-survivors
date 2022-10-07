@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementFeature: {fileID: 706284541}
   movementModification: {fileID: 0}
-  abilityFeature: {fileID: 0}
+  abilityFeature: {fileID: 5688216145403882591}
 --- !u!114 &6229398361802660917
 MonoBehaviour:
   m_ObjectHideFlags: 0
