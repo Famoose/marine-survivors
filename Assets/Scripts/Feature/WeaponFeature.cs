@@ -7,53 +7,50 @@ namespace Feature
 {
     public class WeaponFeature : MonoBehaviour
     {
-        [SerializeField] private WeaponLevelData initialData;
-        private WeaponLevelData _weaponLevelData;
         private WeaponLevelData.WeaponData _weaponData;
+        public bool IsInitialized { get; private set; }
 
-        public event EventHandler<EventArgs> CooledDown;
-
-        private void Awake()
+        public void Initialize(WeaponLevelData.WeaponData weaponData)
         {
-            if (initialData == null)
+            if (weaponData == null)
             {
-                throw new ArgumentException("initialData was null");
+                throw new ArgumentException("The weapon data is not set.");
             }
 
-            if (initialData.perLevelWeaponData == null || !initialData.perLevelWeaponData.Any())
+            _weaponData = new WeaponLevelData.WeaponData
             {
-                throw new ArgumentException("The weapon does not contain any levels");
-            }
-            _weaponLevelData = ScriptableObject.CreateInstance<WeaponLevelData>();
-            _weaponLevelData.weaponName = initialData.weaponName;
-
-            SetWeaponLevel(0);
-            
+                coolDownTime = weaponData.coolDownTime,
+                projectileSpeed = weaponData.projectileSpeed,
+                projectileMovementType = weaponData.projectileMovementType,
+                projectileInitialMovementType = weaponData.projectileInitialMovementType,
+                projectileInitialMovementDirection = weaponData.projectileInitialMovementDirection,
+                projectileLifetime = weaponData.projectileLifetime,
+                prefab = weaponData.prefab,
+                projectilePrefab = weaponData.projectilePrefab
+            };
             ResetCurrentCoolDownValue();
-        }
-
-        public GameObject GetCurrentLevelPrefab()
-        {
-            return _weaponData.prefab;
-        }
-
-        public void SetWeaponLevel(int level)
-        {
-            _weaponData = initialData.perLevelWeaponData[level];
-        }
-
-        public int GetMaxWeaponLevel()
-        {
-            return initialData.perLevelWeaponData.Count - 1;
-        }
-
-        public float GetCurrentCoolDownValue()
-        {
-            return _weaponData.currentCoolDownTime;
+            IsInitialized = true;
         }
         
+        public event EventHandler<EventArgs> CooledDown;
+
+        public WeaponLevelData.WeaponData GetWeaponData()
+        {
+            return _weaponData;
+        }
+
+        public GameObject GetProjectilePrefab()
+        {
+            return _weaponData?.projectilePrefab;
+        }
+
         public void ReduceCurrentCoolDownValue(float value)
         {
+            if (!IsInitialized)
+            {
+                return;
+            }
+            
             _weaponData.currentCoolDownTime -= value;
             if (_weaponData.currentCoolDownTime <= 0f)
             {
@@ -64,6 +61,11 @@ namespace Feature
 
         private void ResetCurrentCoolDownValue()
         {
+            if (!IsInitialized)
+            {
+                return;
+            }
+            
             _weaponData.currentCoolDownTime = _weaponData.coolDownTime;
         }
     }

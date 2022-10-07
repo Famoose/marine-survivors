@@ -47,7 +47,7 @@ namespace Feature
             var playerTrackingFeature = enemy.GetComponent<PlayerTrackingFeature>();
             if (movementFeature && enemyConfig.movementOverride)
             {
-                movementFeature.SetMovementData(enemyConfig.movementOverride);
+                movementFeature.Initialize(enemyConfig.movementOverride);
             }
 
             if (playerTrackingFeature && player)

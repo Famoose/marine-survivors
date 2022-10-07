@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Test Waffe 1
   perLevelWeaponData:
-  - coolDownTime: 3
+  - coolDownTime: 0.1
     currentCoolDownTime: 0
+    projectileSpeed: 3
+    projectileMovementType: 1
+    projectileInitialMovementType: 1
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 4
     prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}

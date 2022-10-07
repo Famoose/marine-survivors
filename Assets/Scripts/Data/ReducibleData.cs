@@ -1,4 +1,3 @@
-using Data.Enum;
 using UnityEngine;
 
 namespace Data

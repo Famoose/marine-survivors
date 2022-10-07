@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 3441582100339723053}
   - component: {fileID: 8166859267248314054}
   - component: {fileID: -4788522254077028266}
+  - component: {fileID: -2332590390264046075}
   m_Layer: 0
   m_Name: TestWeapon1Projectile
   m_TagString: Untagged
@@ -214,6 +215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementFeature: {fileID: 3441582100339723053}
+  movementModification: {fileID: 0}
+  abilityFeature: {fileID: -2332590390264046075}
 --- !u!50 &-2305932644752792912
 Rigidbody2D:
   serializedVersion: 4
@@ -274,3 +277,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialData: {fileID: 11400000, guid: 9a4aee06967e32e498f0db5b1487e0cc, type: 2}
+--- !u!114 &-2332590390264046075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255925786901577691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e034df2d5c9947c7a0c9c1c644e25e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeAbilities: []
+  availableAbilities: []
+  maximumAbilities: 6
+  onAbilityLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
+  onAbilityActivated:
+    m_PersistentCalls:
+      m_Calls: []

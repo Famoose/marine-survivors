@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using Data;
 using Feature;
 using UnityEngine;
 
@@ -9,7 +11,6 @@ namespace Behaviour
     public class WeaponBehaviour : MonoBehaviour
     {
         [SerializeField] private WeaponFeature weaponFeature;
-        [SerializeField] private GameObject projectile;
 
         private Transform _currentTransform;
         
@@ -19,10 +20,6 @@ namespace Behaviour
             {
                 throw new ArgumentException("No WeaponFeature is defined");
             }
-            if (projectile == null)
-            {
-                throw new ArgumentException("No projectile is defined");
-            }
 
             _currentTransform = GetComponent<Transform>();
             
@@ -31,7 +28,10 @@ namespace Behaviour
 
         private void FixedUpdate()
         {
-            ReduceWeaponCoolDownValue(Time.fixedDeltaTime);
+            if (weaponFeature.IsInitialized)
+            {
+                ReduceWeaponCoolDownValue(Time.fixedDeltaTime);   
+            }
         }
         
         private void ReduceWeaponCoolDownValue(float reduceAmount)
@@ -41,10 +41,42 @@ namespace Behaviour
 
         private void WeaponFeatureOnCooledDown(object sender, EventArgs e)
         {
-            if (weaponFeature.GetCurrentCoolDownValue() <= 0f)
+            GameObject projectile = Instantiate(weaponFeature.GetProjectilePrefab(), _currentTransform);
+            DisappearingBehaviour disappearingBehaviour = projectile.GetComponent<DisappearingBehaviour>();
+            if (disappearingBehaviour == null)
             {
-                Instantiate(projectile, _currentTransform);
+                Destroy(projectile);
+                throw new ArgumentException("The instantiated projectile does not contain a DisappearingBehaviour.");
             }
+            MovementBehaviour movementBehaviour = projectile.GetComponent<MovementBehaviour>();
+            if (movementBehaviour == null)
+            {
+                Destroy(projectile);
+                throw new ArgumentException("The instantiated projectile does not contain a MovementBehaviour.");
+            }
+            ReducibleFeature reducibleFeature = disappearingBehaviour.GetComponent<ReducibleFeature>();
+            if (reducibleFeature == null)
+            {
+                Destroy(projectile);
+                throw new ArgumentException("The instantiated projectile does not contain a ReducibleFeature on the Behaviour.");
+            }
+            MovementFeature movementFeature = disappearingBehaviour.GetComponent<MovementFeature>();
+            if (movementFeature == null)
+            {
+                Destroy(projectile);
+                throw new ArgumentException("The instantiated projectile does not contain a MovementFeature on the Behaviour.");
+            }
+            
+            ReducibleData reducibleData = ScriptableObject.CreateInstance<ReducibleData>();
+            reducibleData.value = weaponFeature.GetWeaponData().projectileLifetime;
+            reducibleFeature.Initialize(reducibleData);
+
+            MovementData movementData = ScriptableObject.CreateInstance<MovementData>();
+            movementData.movement = weaponFeature.GetWeaponData().projectileInitialMovementDirection;
+            movementData.speed = weaponFeature.GetWeaponData().projectileSpeed;
+            movementData.movementType = weaponFeature.GetWeaponData().projectileMovementType;
+            movementData.initialMovementType = weaponFeature.GetWeaponData().projectileInitialMovementType;
+            movementFeature.Initialize(movementData);
         }
     }
 }

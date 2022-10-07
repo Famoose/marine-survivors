@@ -63,15 +63,10 @@ namespace Behaviour
         {
             MovementData data = movementFeature.GetMovementData();
 
-            switch (data.movementType)
+            if (data.movementType == MovementType.Constant)
             {
-                case MovementType.Constant:
-                    // Move for a constant value in the current direction
-                    movementFeature.ApplyConstantMovement();
-                    break;
-                case MovementType.ToPlayersDirection:
-                    // TODO: Move towards the player
-                    throw new NotImplementedException();
+                // Move for a constant value in the current direction
+                movementFeature.ApplyConstantMovement();
             }
 
             _rigidbody.MovePosition(_rigidbody.position +

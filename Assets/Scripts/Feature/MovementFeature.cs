@@ -13,20 +13,33 @@ namespace Feature
     {
         [SerializeField] private MovementData initialData;
         private MovementData _data;
-        private void Awake()
+        public bool IsInitialized { get; private set; }
+
+        public void Initialize(MovementData movementData)
         {
-            if (initialData == null)
+            if (movementData == null)
             {
                 throw new ArgumentException("initialData was null");
             }
             _data = ScriptableObject.CreateInstance<MovementData>();
-            _data.movementType = initialData.movementType;
-            _data.initialMovementType = initialData.initialMovementType;
-            _data.speed = initialData.speed;
-            _data.movement = initialData.movement;
+            _data.movementType = movementData.movementType;
+            _data.initialMovementType = movementData.initialMovementType;
+            _data.speed = movementData.speed;
+            _data.movement = movementData.movement;
+
+            IsInitialized = true;
+            StartMovement();
+        }
+        
+        private void Awake()
+        {
+            if (initialData != null)
+            {
+                Initialize(initialData);
+            }
         }
 
-        private void Start()
+        private void StartMovement()
         {
             switch (_data.initialMovementType)
             {
@@ -35,30 +48,34 @@ namespace Feature
                     break;
                 case InitialMovementType.Random:
                     SetMovement(new Vector2(
-                        Random.Range(-1f, 1f), 
-                        Random.Range(-1f, 1f))
+                            Random.Range(-1f, 1f), 
+                            Random.Range(-1f, 1f))
                         .normalized);
                     break;
-            }
+            }   
         }
 
         public MovementData GetMovementData()
         {
             return _data;
         }
+        
         public void SetMovement(Vector2 value)
         {
+            if (!IsInitialized)
+            {
+                return;
+            }
             _data.movement = value.normalized * _data.speed;
         }
 
         public void ApplyConstantMovement()
         {
+            if (!IsInitialized)
+            {
+                return;
+            }
             _data.movement = _data.movement.normalized * _data.speed;
-        }
-
-        public void SetMovementData(MovementData data)
-        {
-            _data = data;
         }
     }
 }
