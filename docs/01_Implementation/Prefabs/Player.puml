@@ -1,0 +1,13 @@
+@startuml
+
+package Player {
+    [Player Input] as playerInput
+    [Movement Behaviour] as movementBeh
+    [Armed Behaviour] as armedBeh
+    [Movement Feature] as movementFea
+    [Owned Weapon Feature 1] as weaponFea1
+    [Owned Weapon Feature 2] as weaponFea2
+    [Owned Weapon Feature n] as weaponFean
+}
+
+@enduml
