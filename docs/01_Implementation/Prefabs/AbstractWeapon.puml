@@ -1,0 +1,13 @@
+@startuml
+
+package Weapon {
+    [Weapon Behaviour] as weaponBeh
+    [Weapon Feature] as weaponFea
+    [Ability Feature] as abilityFea
+}
+
+weaponBeh -- weaponFea
+weaponBeh -- abilityFea
+
+
+@enduml

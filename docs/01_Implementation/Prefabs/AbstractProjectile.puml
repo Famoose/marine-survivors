@@ -1,0 +1,17 @@
+@startuml
+
+package Projectile {
+    [Movement Behaviour] as movementBeh
+    [Disappearing Behaviour] as disappearingBeh
+    [Movement Feature] as movementFea
+    [Reducible Feature] as reducibleFea
+    [Ability Feature] as abilityFea
+}
+
+movementBeh -- movementFea
+movementBeh -- abilityFea
+
+disappearingBeh -- reducibleFea
+disappearingBeh -- abilityFea
+
+@enduml

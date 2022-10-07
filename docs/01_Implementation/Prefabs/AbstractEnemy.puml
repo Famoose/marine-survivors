@@ -1,0 +1,12 @@
+@startuml
+
+package Enemy {
+    [AI Movement Behaviour] as aiMovementBeh
+    [Movement Feature] as movementFea
+    [Player Tracking Feature] as playerTrackingFea
+}
+
+aiMovementBeh -- movementFea
+aiMovementBeh -- playerTrackingFea
+
+@enduml
