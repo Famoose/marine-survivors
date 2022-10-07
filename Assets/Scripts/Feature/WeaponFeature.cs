@@ -7,17 +7,17 @@ namespace Feature
 {
     public class WeaponFeature : MonoBehaviour
     {
-        private WeaponLevelData.WeaponData _weaponData;
+        private WeaponData _weaponData;
         public bool IsInitialized { get; private set; }
 
-        public void Initialize(WeaponLevelData.WeaponData weaponData)
+        public void Initialize(WeaponData weaponData)
         {
             if (weaponData == null)
             {
                 throw new ArgumentException("The weapon data is not set.");
             }
 
-            _weaponData = new WeaponLevelData.WeaponData
+            _weaponData = new WeaponData
             {
                 coolDownTime = weaponData.coolDownTime,
                 projectileSpeed = weaponData.projectileSpeed,
@@ -34,7 +34,7 @@ namespace Feature
         
         public event EventHandler<EventArgs> CooledDown;
 
-        public WeaponLevelData.WeaponData GetWeaponData()
+        public WeaponData GetWeaponData()
         {
             return _weaponData;
         }

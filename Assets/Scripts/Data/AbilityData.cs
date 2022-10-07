@@ -23,7 +23,7 @@ namespace Data
         public BehaviourModification behaviourModification;
         [SerializeField] public List<ValueModifier> valueModifiers;
         public string abilityName;
-        private int _level = 1;
+        private int _level = 0;
 
         public int GetLevel()
         {
@@ -37,17 +37,17 @@ namespace Data
                 throw new InvalidOperationException("Level is already maxed");
             }
 
-            _level += 1;
+            _level++;
         }
 
         public int GetMaxLevel()
         {
-            return valueModifiers.Count + 1;
+            return valueModifiers.Count - 1;
         }
 
         public ValueModifier GetValueModifier()
         {
-            return valueModifiers[_level - 1];
+            return valueModifiers[_level];
         }
     }
 }

@@ -1089,8 +1089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d329985d11855438f176e1c290a68e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeWeapons:
-  - {fileID: 9196224391041051038}
+  ownedWeaponFeature: {fileID: 9196224391041051038}
+  abilityFeature: {fileID: 5688216145403882591}
 --- !u!114 &706284541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1285,4 +1285,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9c5e8e864742629aa50bde80825bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialData: {fileID: 11400000, guid: 9b4382854d55b5f4885ca989c57f79c5, type: 2}
+  activeWeapons:
+  - {fileID: 11400000, guid: 9b4382854d55b5f4885ca989c57f79c5, type: 2}
+  availableWeapons: []
+  maximumWeapons: 4
+  onWeaponLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
+  onWeaponActivated:
+    m_PersistentCalls:
+      m_Calls: []

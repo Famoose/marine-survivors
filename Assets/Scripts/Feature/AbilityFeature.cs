@@ -14,6 +14,14 @@ namespace Feature
         public UnityEvent<AbilityData> onAbilityLevelUp;
         public UnityEvent<AbilityData> onAbilityActivated;
 
+        private void Start()
+        {
+            foreach (AbilityData abilityData in activeAbilities)
+            {
+                onAbilityActivated.Invoke(abilityData);
+            }
+        }
+        
         public List<AbilityData> GetActiveAbilityByModification(BehaviourModification modification)
         {
             return activeAbilities.FindAll(data => data.behaviourModification == modification);

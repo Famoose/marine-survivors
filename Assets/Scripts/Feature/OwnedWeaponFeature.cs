@@ -1,51 +1,65 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Data;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Feature
 {
     public class OwnedWeaponFeature : MonoBehaviour
     {
-        [SerializeField] private WeaponLevelData initialData;
-        private WeaponLevelData _weaponLevelData;
-        private WeaponLevelData.WeaponData _weaponData;
-        
-        private void Awake()
+        [SerializeField] private List<WeaponLevelData> activeWeapons;
+        [SerializeField] private List<WeaponLevelData> availableWeapons;
+        [SerializeField] private int maximumWeapons = 4;
+        public UnityEvent<WeaponLevelData> onWeaponLevelUp;
+        public UnityEvent<WeaponLevelData> onWeaponActivated;
+
+        private void Start()
         {
-            if (initialData == null)
+            foreach (WeaponLevelData weaponLevelData in activeWeapons)
             {
-                throw new ArgumentException("initialData was null");
+                onWeaponActivated.Invoke(weaponLevelData);
+            }
+        }
+
+        public List<WeaponLevelData> GetActiveWeapons()
+        {
+            return activeWeapons;
+        }
+
+        public List<WeaponLevelData> GetAvailableWeapons()
+        {
+            return availableWeapons;
+        }
+
+        public void LevelUpWeapon(string weaponName)
+        {
+            WeaponLevelData weaponLevelData = activeWeapons.SingleOrDefault(data => data.weaponName == weaponName);
+            if (weaponLevelData == null)
+            {
+                throw new ArgumentException("Weapon is not active");
             }
 
-            if (initialData.perLevelWeaponData == null || !initialData.perLevelWeaponData.Any())
+            weaponLevelData.IncreaseLevel();
+            onWeaponLevelUp.Invoke(weaponLevelData);
+        }
+
+        public void ActivateWeapon(string weaponName)
+        {
+            if (activeWeapons.Count == maximumWeapons)
             {
-                throw new ArgumentException("The weapon does not contain any levels");
+                throw new ArgumentException("Maximum weapons active reached.");
             }
-            _weaponLevelData = ScriptableObject.CreateInstance<WeaponLevelData>();
-            _weaponLevelData.weaponName = initialData.weaponName;
 
-            SetWeaponLevel(0);
-        }
-
-        public WeaponLevelData.WeaponData GetCurrentLevelData()
-        {
-            return _weaponData;
-        }
-        
-        public GameObject GetCurrentLevelPrefab()
-        {
-            return _weaponData.prefab;
-        }
-        
-        public void SetWeaponLevel(int level)
-        {
-            _weaponData = initialData.perLevelWeaponData[level];
-        }
-
-        public int GetMaxWeaponLevel()
-        {
-            return initialData.perLevelWeaponData.Count - 1;
+            WeaponLevelData weaponLevelData = availableWeapons.SingleOrDefault(data => data.weaponName == weaponName);
+            if (weaponName == null)
+            {
+                throw new ArgumentException("Weapon is not available");
+            }
+            activeWeapons.Add(weaponLevelData);
+            availableWeapons.Remove(weaponLevelData);
+            onWeaponActivated.Invoke(weaponLevelData);
         }
     }
 }

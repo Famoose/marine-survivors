@@ -1,40 +1,34 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
+using Data;
 using Feature;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Behaviour
 {
     public class ArmedBehaviour : MonoBehaviour
     {
-        [SerializeField] private List<OwnedWeaponFeature> activeWeapons;
+        [SerializeField] private OwnedWeaponFeature ownedWeaponFeature;
         [SerializeField] private AbilityFeature abilityFeature;
 
         public void Awake()
         {
-            if (activeWeapons == null || !activeWeapons.Any())
+            if (ownedWeaponFeature == null)
             {
-                throw new ArgumentException("At least one weapon has to be active.");
+                throw new ArgumentException("No ownedWeaponFeature is defined.");
             }
             
-            // TODO: transfer and use abilities
             if (abilityFeature == null)
             {
-                throw new ArgumentException("No abilityFeature is defined");
+                throw new ArgumentException("No abilityFeature is defined.");
             }
             
-            foreach (OwnedWeaponFeature weaponFeature in activeWeapons)
-            {
-                InstantiateAndInitializeWeapon(weaponFeature);
-            }
+            ownedWeaponFeature.onWeaponActivated.AddListener(InstantiateAndInitializeWeapon);
         }
 
-        private void InstantiateAndInitializeWeapon(OwnedWeaponFeature weaponFeature)
+        private void InstantiateAndInitializeWeapon(WeaponLevelData weaponLevelData)
         {
-            GameObject weapon = Instantiate(weaponFeature.GetCurrentLevelPrefab(), GetComponent<Transform>());
+            WeaponData currentLevelWeaponData = weaponLevelData.GetCurrentLevelsWeaponData();
+            GameObject weapon = Instantiate(currentLevelWeaponData.prefab, GetComponent<Transform>());
             WeaponBehaviour weaponBehaviour = weapon.GetComponent<WeaponBehaviour>();
             if (weaponBehaviour == null)
             {
@@ -47,7 +41,7 @@ namespace Behaviour
                 Destroy(weapon);
                 throw new ArgumentException("The instantiated weapon does not contain a WeaponFeature on the Behaviour.");
             }
-            feature.Initialize(weaponFeature.GetCurrentLevelData());
+            feature.Initialize(currentLevelWeaponData);
         }
     }
 }

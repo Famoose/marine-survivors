@@ -11,19 +11,30 @@ namespace Data
     {
         public string weaponName;
         public List<WeaponData> perLevelWeaponData;
-        
-        [Serializable]
-        public class WeaponData
+        private int _level = 0;
+
+        public int GetLevel()
         {
-            public float coolDownTime;
-            public float currentCoolDownTime;
-            public float projectileSpeed;
-            public MovementType projectileMovementType;
-            public InitialMovementType projectileInitialMovementType;
-            public Vector2 projectileInitialMovementDirection;
-            public float projectileLifetime;
-            public GameObject prefab;
-            public GameObject projectilePrefab;
+            return _level;
+        }
+
+        public void IncreaseLevel()
+        {
+            if (_level == GetMaxLevel())
+            {
+                throw new ArgumentException("The weapon is already at its highest level.");
+            }
+            _level++;
+        }
+        
+        public int GetMaxLevel()
+        {
+            return perLevelWeaponData.Count - 1;
+        }
+
+        public WeaponData GetCurrentLevelsWeaponData()
+        {
+            return perLevelWeaponData[_level];
         }
     }
 }
