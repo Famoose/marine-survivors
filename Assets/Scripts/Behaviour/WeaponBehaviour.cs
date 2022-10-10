@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using Data;
+using Data.Enum;
 using Feature;
 using UnityEngine;
 
@@ -54,19 +55,20 @@ namespace Behaviour
                 Destroy(projectile);
                 throw new ArgumentException("The instantiated projectile does not contain a MovementBehaviour.");
             }
-            ReducibleFeature reducibleFeature = disappearingBehaviour.GetComponent<ReducibleFeature>();
-            if (reducibleFeature == null)
+            InflictDamageOnCollisionBehaviour inflictDamageOnCollisionBehaviour =
+                projectile.GetComponent<InflictDamageOnCollisionBehaviour>();
+            if (inflictDamageOnCollisionBehaviour == null)
             {
                 Destroy(projectile);
-                throw new ArgumentException("The instantiated projectile does not contain a ReducibleFeature on the Behaviour.");
-            }
-            MovementFeature movementFeature = disappearingBehaviour.GetComponent<MovementFeature>();
-            if (movementFeature == null)
-            {
-                Destroy(projectile);
-                throw new ArgumentException("The instantiated projectile does not contain a MovementFeature on the Behaviour.");
+                throw new ArgumentException("The instantiated projectile does not contain a InflictDamageOnCollisionBehaviour.");
             }
             
+            // Features are null-checked at their corresponding behaviours
+            ReducibleFeature reducibleFeature = disappearingBehaviour.GetReducibleFeature();
+            MovementFeature movementFeature = movementBehaviour.GetMovementFeature();
+            InflictDamageOnCollisionFeature inflictDamageOnCollisionFeature =
+                inflictDamageOnCollisionBehaviour.GetInflictDamageOnCollisionFeature();
+
             ReducibleData reducibleData = ScriptableObject.CreateInstance<ReducibleData>();
             reducibleData.value = weaponFeature.GetWeaponData().projectileLifetime;
             reducibleFeature.Initialize(reducibleData);
@@ -77,6 +79,12 @@ namespace Behaviour
             movementData.movementType = weaponFeature.GetWeaponData().projectileMovementType;
             movementData.initialMovementType = weaponFeature.GetWeaponData().projectileInitialMovementType;
             movementFeature.Initialize(movementData);
+
+            InflictDamageData inflictDamageData = ScriptableObject.CreateInstance<InflictDamageData>();
+            inflictDamageData.inflictedDamage = weaponFeature.GetWeaponData().projectileInflictedDamage;
+            inflictDamageData.destroyOnInflictingDamage = true;
+            inflictDamageData.ignoredGameObjectType = ActiveGameObjectType.Player;
+            inflictDamageOnCollisionFeature.Initialize(inflictDamageData);
         }
     }
 }

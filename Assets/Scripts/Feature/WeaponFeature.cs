@@ -25,6 +25,7 @@ namespace Feature
                 projectileInitialMovementType = weaponData.projectileInitialMovementType,
                 projectileInitialMovementDirection = weaponData.projectileInitialMovementDirection,
                 projectileLifetime = weaponData.projectileLifetime,
+                projectileInflictedDamage = weaponData.projectileInflictedDamage,
                 prefab = weaponData.prefab,
                 projectilePrefab = weaponData.projectilePrefab
             };

@@ -9,6 +9,11 @@ namespace Behaviour
     {
         [SerializeField] private ReducibleFeature reducibleFeature;
 
+        public ReducibleFeature GetReducibleFeature()
+        {
+            return reducibleFeature;
+        }
+        
         private void Awake()
         {
             if (reducibleFeature == null)

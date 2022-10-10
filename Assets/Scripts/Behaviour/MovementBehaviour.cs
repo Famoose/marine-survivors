@@ -18,6 +18,11 @@ namespace Behaviour
         // modification value
         private float _movementModificationFactor = 1;
 
+        public MovementFeature GetMovementFeature()
+        {
+            return movementFeature;
+        }
+
         private void Awake()
         {
             if (movementFeature == null)

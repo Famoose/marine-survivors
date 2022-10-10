@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 8828125293172816943}
   - component: {fileID: 5456426350157240373}
   - component: {fileID: -3541004762780687323}
+  - component: {fileID: -3790441372406457714}
+  - component: {fileID: -7125203159191130109}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -246,3 +248,35 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &-3790441372406457714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632865536608531596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e350c25d9de5406fb1f47a3c929b3e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthFeature: {fileID: -7125203159191130109}
+--- !u!114 &-7125203159191130109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632865536608531596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883f27c0fd81493aae1b8b6389ecf9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialData: {fileID: 11400000, guid: d4acd15033222ca48bf212e1151e6442, type: 2}
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []

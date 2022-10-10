@@ -14,6 +14,7 @@ namespace Data
         public InitialMovementType projectileInitialMovementType;
         public Vector2 projectileInitialMovementDirection;
         public float projectileLifetime;
+        public float projectileInflictedDamage;
         public GameObject prefab;
         public GameObject projectilePrefab;
     }

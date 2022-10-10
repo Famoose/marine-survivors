@@ -127,9 +127,12 @@ GameObject:
   - component: {fileID: 8166859267248314054}
   - component: {fileID: -4788522254077028266}
   - component: {fileID: -2332590390264046075}
+  - component: {fileID: 3435551091540943729}
+  - component: {fileID: 387334786894958677}
+  - component: {fileID: 1681265069695422328}
   m_Layer: 0
   m_Name: TestWeapon1Projectile
-  m_TagString: Untagged
+  m_TagString: Player Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a7d0807c144b7493a049fd7aab9cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialData: {fileID: 11400000, guid: 9a4aee06967e32e498f0db5b1487e0cc, type: 2}
 --- !u!114 &-2332590390264046075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,3 +300,44 @@ MonoBehaviour:
   onAbilityActivated:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3435551091540943729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255925786901577691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b112105ffd344ffbf1d02af19f72e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inflictDamageOnCollisionFeature: {fileID: 387334786894958677}
+--- !u!114 &387334786894958677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255925786901577691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47581202f7c74b2ab3c8e3c9497dbec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1681265069695422328
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255925786901577691}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
