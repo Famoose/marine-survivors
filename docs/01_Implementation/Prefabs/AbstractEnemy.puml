@@ -2,11 +2,14 @@
 
 package Enemy {
     [AI Movement Behaviour] as aiMovementBeh
+    [Damageable Behaviour] as damageableBeh
     [Movement Feature] as movementFea
     [Player Tracking Feature] as playerTrackingFea
+    [Health Feature] as healthFea
 }
 
 aiMovementBeh -- movementFea
 aiMovementBeh -- playerTrackingFea
+damageableBeh -- healthFea
 
 @enduml

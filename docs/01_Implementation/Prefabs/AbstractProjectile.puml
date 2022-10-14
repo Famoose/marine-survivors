@@ -3,15 +3,21 @@
 package Projectile {
     [Movement Behaviour] as movementBeh
     [Disappearing Behaviour] as disappearingBeh
+    [Inflict Damage On Collision Behaviour] as inflictDamageBeh
     [Movement Feature] as movementFea
     [Reducible Feature] as reducibleFea
     [Ability Feature] as abilityFea
+    [Inflict Damage On Collision Feature] as inflictDamageFea
+    [On Collision Enter] as onCollisionEnter
 }
 
 movementBeh -- movementFea
 movementBeh -- abilityFea
 
 disappearingBeh -- reducibleFea
-disappearingBeh -- abilityFea
+
+inflictDamageBeh -- inflictDamageFea
+
+onCollisionEnter .. inflictDamageBeh
 
 @enduml

@@ -73,7 +73,6 @@ namespace Feature
             {
                 _healthData.health = 0;
                 onDeath.Invoke();
-                Destroy(gameObject);
             }
         }
     }

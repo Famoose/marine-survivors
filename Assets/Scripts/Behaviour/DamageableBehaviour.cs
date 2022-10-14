@@ -14,6 +14,13 @@ namespace Behaviour
             {
                 throw new ArgumentException("No HealthFeature is defined");
             }
+            
+            healthFeature.onDeath.AddListener(OnDeath);
+        }
+
+        private void OnDeath()
+        {
+            Destroy(gameObject);
         }
 
         public void InflictDamage(float damage)
