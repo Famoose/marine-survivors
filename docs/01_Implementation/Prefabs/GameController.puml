@@ -1,0 +1,10 @@
+@startuml
+
+package GameController {
+    [Enemy Spawn Behaviour] as enemyBeh
+    [Enemy Wave Feature] as enemyFea
+}
+
+enemyBeh -- enemyFea
+
+@enduml
