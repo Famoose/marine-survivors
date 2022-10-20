@@ -2,12 +2,14 @@ using System;
 using Data;
 using Data.Enum;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Feature
 {
     public class InflictDamageOnCollisionFeature : MonoBehaviour
     {
-        private InflictDamageData _inflictDamageData;
+        [SerializeField]
+        private InflictDamageData inflictDamageData;
         public bool IsInitialized { get; private set; }
 
         public void Initialize(InflictDamageData inflictDamageData)
@@ -16,10 +18,10 @@ namespace Feature
             {
                 throw new ArgumentException("The inflict damage data is not set.");
             }
-            _inflictDamageData = ScriptableObject.CreateInstance<InflictDamageData>();
-            _inflictDamageData.inflictedDamage = inflictDamageData.inflictedDamage;
-            _inflictDamageData.destroyOnInflictingDamage = inflictDamageData.destroyOnInflictingDamage;
-            _inflictDamageData.ignoredGameObjectType = inflictDamageData.ignoredGameObjectType;
+            this.inflictDamageData = ScriptableObject.CreateInstance<InflictDamageData>();
+            this.inflictDamageData.inflictedDamage = inflictDamageData.inflictedDamage;
+            this.inflictDamageData.destroyOnInflictingDamage = inflictDamageData.destroyOnInflictingDamage;
+            this.inflictDamageData.ignoredGameObjectType = inflictDamageData.ignoredGameObjectType;
             IsInitialized = true;
         }
 
@@ -29,7 +31,7 @@ namespace Feature
             {
                 return 0f;
             }
-            return _inflictDamageData.inflictedDamage;
+            return inflictDamageData.inflictedDamage;
         }
 
         public bool ShallDestroyAfterInflictingDamage()
@@ -38,7 +40,7 @@ namespace Feature
             {
                 return false;
             }
-            return _inflictDamageData.destroyOnInflictingDamage;
+            return inflictDamageData.destroyOnInflictingDamage;
         }
 
         public ActiveGameObjectType? GetTypeWhichIsIgnoredForCollision()
@@ -47,7 +49,7 @@ namespace Feature
             {
                 return null;
             }
-            return _inflictDamageData.ignoredGameObjectType;
+            return inflictDamageData.ignoredGameObjectType;
         }
     }
 }

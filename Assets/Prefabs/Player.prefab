@@ -944,6 +944,7 @@ GameObject:
   - component: {fileID: 1730395456840981620}
   - component: {fileID: 5089811554256158416}
   - component: {fileID: 9196224391041051038}
+  - component: {fileID: 6354119541979471577}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1075,7 +1076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementFeature: {fileID: 706284541}
-  movementModification: {fileID: 0}
+  movementModification: {fileID: 11400000, guid: 4a8528c14b58a5744822dd774a4eff6b, type: 2}
   abilityFeature: {fileID: 5688216145403882591}
 --- !u!114 &6229398361802660917
 MonoBehaviour:
@@ -1168,7 +1169,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1246,7 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883f27c0fd81493aae1b8b6389ecf9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthData: {fileID: 11400000, guid: ba4fa3c25b15a2e408b2226569471502, type: 2}
+  initialData: {fileID: 11400000, guid: ba4fa3c25b15a2e408b2226569471502, type: 2}
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
@@ -1295,3 +1296,16 @@ MonoBehaviour:
   onWeaponActivated:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6354119541979471577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388919501434285819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e350c25d9de5406fb1f47a3c929b3e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthFeature: {fileID: 1730395456840981620}

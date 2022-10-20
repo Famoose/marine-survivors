@@ -8,6 +8,7 @@ namespace Data
     public class EnemyConfig
     {
         public MovementData movementOverride;
+        public InflictDamageData inflictDamageOverride;
         public float amount = 10;
         public GameObject enemy;
         public float timeOffset;

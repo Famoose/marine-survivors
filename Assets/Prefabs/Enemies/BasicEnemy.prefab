@@ -18,9 +18,11 @@ GameObject:
   - component: {fileID: -3541004762780687323}
   - component: {fileID: -3790441372406457714}
   - component: {fileID: -7125203159191130109}
+  - component: {fileID: -3341796517216100165}
+  - component: {fileID: -5467641999990460481}
   m_Layer: 0
   m_Name: BasicEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +170,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-3541004762780687323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,3 +282,29 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-3341796517216100165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632865536608531596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47581202f7c74b2ab3c8e3c9497dbec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inflictDamageData: {fileID: 11400000, guid: d937cec7bcc994f88a83fad042c5cf8f, type: 2}
+--- !u!114 &-5467641999990460481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632865536608531596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b112105ffd344ffbf1d02af19f72e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inflictDamageOnCollisionFeature: {fileID: -3341796517216100165}

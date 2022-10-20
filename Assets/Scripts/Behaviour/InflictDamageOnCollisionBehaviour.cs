@@ -7,6 +7,7 @@ namespace Behaviour
 {
     public class InflictDamageOnCollisionBehaviour : MonoBehaviour
     {
+        private readonly string[] _validTags = {"Enemy", "Player Projectile"};
         [SerializeField] private InflictDamageOnCollisionFeature inflictDamageOnCollisionFeature;
         private Collider2D _collider;
 
@@ -28,10 +29,17 @@ namespace Behaviour
                 throw new ArgumentException("No Collider is defined");
             }
 
-            if (!CompareTag("Player Projectile"))
+            if (!ComponentHasValidTag())
             {
-                throw new ArgumentException("The projectile does not contain the 'Player Projectile'-tag");
+                //throw new ArgumentException("The projectile does not contain the 'Player Projectile'-tag");
+                throw new ArgumentException("The inflicter behaviour component does not contain a valid tag. (Player Projectile or Enemy)");
             }
+        }
+
+        private bool ComponentHasValidTag()
+        {
+            int found = Array.FindIndex(_validTags, el => el.Equals(tag));
+            return found > -1;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -48,6 +56,13 @@ namespace Behaviour
             {
                 // Ignore collisions with the player object (no suicides here...)
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+                return;
+            }
+
+            if (inflictDamageOnCollisionFeature.GetTypeWhichIsIgnoredForCollision() == ActiveGameObjectType.Enemy &&
+                collision.collider.gameObject.CompareTag("Enemy"))
+            {
+                // Ignore collisions with other enemeies
                 return;
             }
             
