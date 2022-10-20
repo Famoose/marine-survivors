@@ -62,7 +62,7 @@ namespace Behaviour
             if (inflictDamageOnCollisionFeature.GetTypeWhichIsIgnoredForCollision() == ActiveGameObjectType.Enemy &&
                 collision.collider.gameObject.CompareTag("Enemy"))
             {
-                // Ignore collisions with other enemeies
+                // Ignore collisions with other enemies
                 return;
             }
             
