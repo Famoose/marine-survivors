@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Data;
 using Feature;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace Behaviour
     {
         [SerializeField] private OwnedWeaponFeature ownedWeaponFeature;
         [SerializeField] private AbilityFeature abilityFeature;
-
+        private Dictionary<WeaponLevelData, GameObject> _initializedWeapons = new Dictionary<WeaponLevelData, GameObject>();
         public void Awake()
         {
             if (ownedWeaponFeature == null)
@@ -23,6 +24,7 @@ namespace Behaviour
             }
             
             ownedWeaponFeature.onWeaponActivated.AddListener(InstantiateAndInitializeWeapon);
+            ownedWeaponFeature.onWeaponLevelUp.AddListener(UpdateWeapon);
         }
 
         private void InstantiateAndInitializeWeapon(WeaponLevelData weaponLevelData)
@@ -42,6 +44,15 @@ namespace Behaviour
                 throw new ArgumentException("The instantiated weapon does not contain a WeaponFeature on the Behaviour.");
             }
             feature.Initialize(currentLevelWeaponData);
+            
+            _initializedWeapons.Add(weaponLevelData, weapon);
+        }
+
+        private void UpdateWeapon(WeaponLevelData weaponLevelData)
+        {
+            WeaponFeature feature =  _initializedWeapons[weaponLevelData].GetComponent<WeaponFeature>();
+            Debug.Log(weaponLevelData.GetCurrentLevelsWeaponData().coolDownTime);
+            feature.Initialize(weaponLevelData.GetCurrentLevelsWeaponData());
         }
     }
 }

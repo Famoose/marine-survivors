@@ -7,55 +7,79 @@ namespace Feature
 {
     public class LevelFeature : MonoBehaviour
     {
-        [SerializeField] private LevelData levelData;
+        [SerializeField] private LevelData initialData;
+        private LevelData _data;
         public UnityEvent<int> onLevelChange;
         public UnityEvent onExperienceChange;
+        
+        public bool IsInitialized { get; private set; }
 
-        private void Awake()
+        public void Initialize(LevelData levelData)
         {
             if (levelData == null)
             {
-                throw new ArgumentException("levelData was null");
+                throw new ArgumentException("initialData was null");
+            }
+            _data = ScriptableObject.CreateInstance<LevelData>();
+            _data.levelCalcConstant = levelData.levelCalcConstant;
+            _data.levelCalcParam = levelData.levelCalcParam;
+            _data.currentLevel = levelData.currentLevel;
+            _data.experiencePointsTotal = levelData.experiencePointsTotal;
+            _data.experiencePointsCurrentLevel = levelData.experiencePointsCurrentLevel;
+
+            IsInitialized = true;
+        }
+        
+        private void Awake()
+        {
+            if (initialData != null)
+            {
+                Initialize(initialData);
             }
         }
 
         public int GetLevel()
         {
-            return levelData.currentLevel;
+            return _data.currentLevel;
         }
         
         public float GetLevelProgress()
         {
-            return levelData.experiencePointsCurrentLevel;
+            return _data.experiencePointsCurrentLevel;
+        }
+        
+        public float GetExperiencePointsTotal()
+        {
+            return _data.experiencePointsTotal;
         }
         
         public double GetLevelProgressPercent()
         {
-            return levelData.experiencePointsCurrentLevel / CalculateExperienceForNextLevel();
+            return _data.experiencePointsCurrentLevel / CalculateExperienceForNextLevel();
         }
 
         public void AddExperience(float value)
         {
             //add to total experience
-            levelData.experiencePointsTotal += value;
+            _data.experiencePointsTotal += value;
             
             //calculate current level experience
             double nextLevelAmount = CalculateExperienceForNextLevel();
-            levelData.experiencePointsCurrentLevel += value;
+            _data.experiencePointsCurrentLevel += value;
             
             //if new level reached
-            if ( levelData.experiencePointsCurrentLevel >= nextLevelAmount)
+            if ( _data.experiencePointsCurrentLevel >= nextLevelAmount)
             {
-                levelData.currentLevel += 1;
-                levelData.experiencePointsCurrentLevel = (float) (levelData.experiencePointsCurrentLevel - nextLevelAmount);
-                onLevelChange.Invoke(levelData.currentLevel);
+                _data.currentLevel += 1;
+                _data.experiencePointsCurrentLevel = (float) (_data.experiencePointsCurrentLevel - nextLevelAmount);
+                onLevelChange.Invoke(_data.currentLevel);
             }
             onExperienceChange.Invoke();
         }
 
         private double CalculateExperienceForNextLevel()
         {
-            return levelData.levelCalcParam * Math.Log(levelData.currentLevel) + levelData.levelCalcConstant;
+            return _data.levelCalcParam * Math.Log(_data.currentLevel) + _data.levelCalcConstant;
         }
     }
 }

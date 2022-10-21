@@ -9,6 +9,7 @@ namespace Data
     {
         public MovementData movementOverride;
         public InflictDamageData inflictDamageOverride;
+        public LootData lootOverride;
         public float amount = 10;
         public GameObject enemy;
         public float timeOffset;

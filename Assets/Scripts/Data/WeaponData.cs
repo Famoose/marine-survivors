@@ -1,6 +1,7 @@
 using System;
 using Data.Enum;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 
 namespace Data
 {
@@ -17,5 +18,22 @@ namespace Data
         public float projectileInflictedDamage;
         public GameObject prefab;
         public GameObject projectilePrefab;
+
+        public WeaponData Copy()
+        {
+            return new WeaponData
+            {
+                coolDownTime = this.coolDownTime,
+                currentCoolDownTime = this.currentCoolDownTime,
+                projectileSpeed = this.projectileSpeed,
+                projectileMovementType = this.projectileMovementType,
+                projectileInitialMovementType = this.projectileInitialMovementType,
+                projectileInitialMovementDirection = this.projectileInitialMovementDirection,
+                projectileLifetime = this.projectileLifetime,
+                projectileInflictedDamage = this.projectileInflictedDamage,
+                prefab = this.prefab,
+                projectilePrefab = this.projectilePrefab
+            };
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Data;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,26 @@ namespace Feature
         [SerializeField] private int maximumAbilities = 6;
         public UnityEvent<AbilityData> onAbilityLevelUp;
         public UnityEvent<AbilityData> onAbilityActivated;
+
+        private void Awake()
+        {
+            activeAbilities = activeAbilities.Select(InitializeAbility).ToList();
+            availableAbilities = availableAbilities.Select(InitializeAbility).ToList();
+        }
+
+        private AbilityData InitializeAbility(AbilityData initialData)
+        {
+            if (initialData == null)
+            {
+                throw new ArgumentException("initialData was null");
+            }
+            AbilityData abilityData = ScriptableObject.CreateInstance<AbilityData>();
+            abilityData.abilityName = initialData.abilityName;
+            abilityData.behaviourModification = initialData.behaviourModification;
+            abilityData.valueModifiers = initialData.valueModifiers.Select(vm => vm.Copy()).ToList();
+
+            return abilityData;
+        }
 
         private void Start()
         {

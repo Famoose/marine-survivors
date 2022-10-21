@@ -15,6 +15,7 @@ MonoBehaviour:
   enemyConfigs:
   - movementOverride: {fileID: 11400000, guid: cdf13dec5820ad14a952c29cf8289ebc, type: 2}
     inflictDamageOverride: {fileID: 11400000, guid: d937cec7bcc994f88a83fad042c5cf8f, type: 2}
+    lootOverride: {fileID: 11400000, guid: aa271242dbbe7468bb685dcdfc0b6a84, type: 2}
     amount: 20
     enemy: {fileID: 6632865536608531596, guid: f25a796a633ff224eb3dc40def3865d0, type: 3}
     timeOffset: 10

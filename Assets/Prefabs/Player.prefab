@@ -945,6 +945,8 @@ GameObject:
   - component: {fileID: 5089811554256158416}
   - component: {fileID: 9196224391041051038}
   - component: {fileID: 6354119541979471577}
+  - component: {fileID: 780954653444615509}
+  - component: {fileID: 7707565932085502250}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1228,7 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45438358bbe4244afbfdec9672daeeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: 4f56975eb93af21418599350e5ac5432, type: 2}
+  initialData: {fileID: 11400000, guid: 4f56975eb93af21418599350e5ac5432, type: 2}
   onLevelChange:
     m_PersistentCalls:
       m_Calls: []
@@ -1309,3 +1311,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFeature: {fileID: 1730395456840981620}
+--- !u!114 &780954653444615509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388919501434285819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748d57364fd44b52b5326b2661760f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialData: {fileID: 11400000, guid: b2a21febefd8c4a38a00ddd4edb84735, type: 2}
+--- !u!114 &7707565932085502250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388919501434285819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86efb74056b74a9d83464c2595b87b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radiusFeature: {fileID: 780954653444615509}
+  healthFeature: {fileID: 1730395456840981620}
+  levelFeature: {fileID: 7978877587452246602}
+  ownedWeapon: {fileID: 9196224391041051038}
+  abilityFeature: {fileID: 5688216145403882591}

@@ -55,7 +55,7 @@ namespace Behaviour
             {
                 var valueModifier = abilityData.GetValueModifier();
                 //movement only supports factor
-                if (valueModifier.type == ValueModifierType.FACTOR)
+                if (valueModifier.type == ValueModifierType.Factor)
                 {
                     factor *= valueModifier.value;
                 }

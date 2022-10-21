@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Data
 {
     public enum ValueModifierType
     {
-        FACTOR,
-        AMOUNT
+        Factor,
+        Amount
     }
 
     [Serializable]
@@ -15,6 +16,15 @@ namespace Data
     {
         public float value;
         public ValueModifierType type;
+
+        public ValueModifier Copy()
+        {
+            return new ValueModifier
+            {
+                value = this.value,
+                type = this.type
+            };
+        }
     }
 
     [CreateAssetMenu(fileName = "AbilityData", menuName = "FeatureData/AbilityData", order = 0)]

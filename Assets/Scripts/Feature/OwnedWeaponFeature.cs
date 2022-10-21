@@ -15,6 +15,25 @@ namespace Feature
         public UnityEvent<WeaponLevelData> onWeaponLevelUp;
         public UnityEvent<WeaponLevelData> onWeaponActivated;
 
+        private void Awake()
+        {
+            activeWeapons = activeWeapons.Select(InitializeWeapon).ToList();
+            availableWeapons = availableWeapons.Select(InitializeWeapon).ToList();
+        }
+
+        private WeaponLevelData InitializeWeapon(WeaponLevelData initialData)
+        {
+            if (initialData == null)
+            {
+                throw new ArgumentException("initialData was null");
+            }
+            WeaponLevelData weaponLevelData = ScriptableObject.CreateInstance<WeaponLevelData>();
+            weaponLevelData.weaponName = initialData.weaponName;
+            weaponLevelData.perLevelWeaponData = initialData.perLevelWeaponData.Select(vm => vm.Copy()).ToList();
+
+            return weaponLevelData;
+        }
+        
         private void Start()
         {
             foreach (WeaponLevelData weaponLevelData in activeWeapons)

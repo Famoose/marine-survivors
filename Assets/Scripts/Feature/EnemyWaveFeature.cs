@@ -46,6 +46,7 @@ namespace Feature
             var movementFeature = enemy.GetComponent<MovementFeature>();
             var inflictDamageOnCollisionFeature = enemy.GetComponent<InflictDamageOnCollisionFeature>();
             var playerTrackingFeature = enemy.GetComponent<PlayerTrackingFeature>();
+            var lootFeature = enemy.GetComponent<LootFeature>();
             
             if (movementFeature && enemyConfig.movementOverride)
             {
@@ -60,6 +61,11 @@ namespace Feature
             if (playerTrackingFeature && player)
             {
                 playerTrackingFeature.SetPlayer(player);
+            }
+
+            if (lootFeature && enemyConfig.lootOverride)
+            {
+                lootFeature.Initialize(enemyConfig.lootOverride);
             }
 
             return gameObject;
