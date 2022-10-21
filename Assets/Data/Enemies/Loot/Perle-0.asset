@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Perle-0
   m_EditorClassIdentifier: 
   lootTable:
-  - probability: 1
+  - probability: 0.9
     prefab: {fileID: 2926263175696369925, guid: 222eda8f85d71465cb37cb9de4de815c, type: 3}
   - probability: 0.1
     prefab: {fileID: 2926263175696369925, guid: 93d3b6ad86f8143539af3900eb3189d9, type: 3}
   - probability: 0.1
-    prefab: {fileID: 2926263175696369925, guid: 93d3b6ad86f8143539af3900eb3189d9, type: 3}
+    prefab: {fileID: 2926263175696369925, guid: e5c96fd1feb75432a85767e40f148aa8, type: 3}
+  - probability: 0.1
+    prefab: {fileID: 2926263175696369925, guid: 11502da8d424948c583021185a31f225, type: 3}
