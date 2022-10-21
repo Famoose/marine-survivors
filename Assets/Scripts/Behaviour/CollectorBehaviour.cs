@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Behaviour.item;
 using Data;
 using Feature;
 using UnityEngine;
@@ -79,7 +80,15 @@ namespace Behaviour
 
                 if (type.Equals(CollectableType.Item))
                 {
-                    
+                    IItemBehaviour itemBehaviour = other.gameObject.GetComponent<IItemBehaviour>();
+                    if (itemBehaviour != null)
+                    {
+                        itemBehaviour.ActivateItem(gameObject);
+                    }
+                    else
+                    {
+                        throw new ArgumentException("No itemBehaviour on collectable is defined");
+                    }
                 }
                 
                 Destroy(other.gameObject);

@@ -9,21 +9,23 @@ using UnityEngine.Serialization;
 namespace Behaviour
 {
     public class AIMovementBehaviour : MonoBehaviour
-    {
-        [SerializeField] private MovementFeature movementFeature;
-        [SerializeField] private PlayerTrackingFeature playerTrackingFeature;
+    { 
+        public MovementFeature movementFeature;
+        public PlayerTrackingFeature playerTrackingFeature;
         private Rigidbody2D _rigidbody;
 
         private void Awake()
         {
-            if (movementFeature == null)
+            /*
+             todo: descuss how to check features, because this behaviour is instantiated at runtime by items
+             if (movementFeature == null)
             {
                 throw new ArgumentException("No movementInputFeature is defined");
             }
             if (playerTrackingFeature == null)
             {
                 throw new ArgumentException("No playerTrackingFeature is defined");
-            }
+            }*/
         }
 
         private void Start()

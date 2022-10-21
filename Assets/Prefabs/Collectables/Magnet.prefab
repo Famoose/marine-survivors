@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8668880271120440000}
   - component: {fileID: 2166336836581552453}
   - component: {fileID: 4903885181241354450}
-  - component: {fileID: 6218503333576269035}
-  - component: {fileID: 5793610393027998725}
+  - component: {fileID: -3715731160639245591}
+  - component: {fileID: -5133039204759610094}
   m_Layer: 0
-  m_Name: Perle
+  m_Name: Magnet
   m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2926263175696369925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24cf210708c57674b894af3341b1738b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,8 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5c2ac9ff7f4181a57d40181879c67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialData: {fileID: 11400000, guid: 60d16c931ad5145739cff1150ae7294f, type: 2}
---- !u!114 &6218503333576269035
+  initialData: {fileID: 11400000, guid: b7e5dbd0dbd934068a601f62f6ef0ea1, type: 2}
+--- !u!114 &-3715731160639245591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,17 +126,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2926263175696369925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c45438358bbe4244afbfdec9672daeeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cb2f4ac5089406e8a5051fd1db0a0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialData: {fileID: 11400000, guid: 449d6aad098374abf8442aa58ebfcc3a, type: 2}
-  onLevelChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onExperienceChange:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!50 &5793610393027998725
+--- !u!50 &-5133039204759610094
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
