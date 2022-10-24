@@ -45,7 +45,7 @@ namespace Feature
             var enemy = Instantiate(enemyConfig.enemy, position, Quaternion.identity);
             var movementFeature = enemy.GetComponent<MovementFeature>();
             var inflictDamageOnCollisionFeature = enemy.GetComponent<InflictDamageOnCollisionFeature>();
-            var playerTrackingFeature = enemy.GetComponent<PlayerTrackingFeature>();
+            var playerTrackingFeature = enemy.GetComponent<TrackingFeature>();
             var lootFeature = enemy.GetComponent<LootFeature>();
             
             if (movementFeature && enemyConfig.movementOverride)
@@ -60,7 +60,7 @@ namespace Feature
 
             if (playerTrackingFeature && player)
             {
-                playerTrackingFeature.SetPlayer(player);
+                playerTrackingFeature.SetTarget(player);
             }
 
             if (lootFeature && enemyConfig.lootOverride)

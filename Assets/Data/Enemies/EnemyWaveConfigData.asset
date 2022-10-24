@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyWaveConfigData
   m_EditorClassIdentifier: 
   enemyConfigs:
-  - movementOverride: {fileID: 11400000, guid: cdf13dec5820ad14a952c29cf8289ebc, type: 2}
+  - movementOverride: {fileID: 11400000, guid: 4293883d69e994cb7bd58e29eed50f81, type: 2}
     inflictDamageOverride: {fileID: 11400000, guid: d937cec7bcc994f88a83fad042c5cf8f, type: 2}
     lootOverride: {fileID: 11400000, guid: aa271242dbbe7468bb685dcdfc0b6a84, type: 2}
     amount: 20
@@ -27,7 +27,7 @@ MonoBehaviour:
     enemy: {fileID: 6632865536608531596, guid: c41ac9d2cf5a64809b230b5886dd194d, type: 3}
     timeOffset: 10
     positionOffset: 20
-  - movementOverride: {fileID: 11400000, guid: cdf13dec5820ad14a952c29cf8289ebc, type: 2}
+  - movementOverride: {fileID: 11400000, guid: 4293883d69e994cb7bd58e29eed50f81, type: 2}
     inflictDamageOverride: {fileID: 11400000, guid: d937cec7bcc994f88a83fad042c5cf8f, type: 2}
     lootOverride: {fileID: 11400000, guid: aa271242dbbe7468bb685dcdfc0b6a84, type: 2}
     amount: 30
@@ -41,7 +41,7 @@ MonoBehaviour:
     enemy: {fileID: 6632865536608531596, guid: c41ac9d2cf5a64809b230b5886dd194d, type: 3}
     timeOffset: 10
     positionOffset: 20
-  - movementOverride: {fileID: 11400000, guid: cdf13dec5820ad14a952c29cf8289ebc, type: 2}
+  - movementOverride: {fileID: 11400000, guid: 4293883d69e994cb7bd58e29eed50f81, type: 2}
     inflictDamageOverride: {fileID: 11400000, guid: d937cec7bcc994f88a83fad042c5cf8f, type: 2}
     lootOverride: {fileID: 11400000, guid: aa271242dbbe7468bb685dcdfc0b6a84, type: 2}
     amount: 120
@@ -55,7 +55,7 @@ MonoBehaviour:
     enemy: {fileID: 6632865536608531596, guid: c41ac9d2cf5a64809b230b5886dd194d, type: 3}
     timeOffset: 10
     positionOffset: 20
-  - movementOverride: {fileID: 11400000, guid: cdf13dec5820ad14a952c29cf8289ebc, type: 2}
+  - movementOverride: {fileID: 11400000, guid: 4293883d69e994cb7bd58e29eed50f81, type: 2}
     inflictDamageOverride: {fileID: 11400000, guid: d937cec7bcc994f88a83fad042c5cf8f, type: 2}
     lootOverride: {fileID: 11400000, guid: aa271242dbbe7468bb685dcdfc0b6a84, type: 2}
     amount: 200

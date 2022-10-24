@@ -2,6 +2,7 @@ using System;
 using Data;
 using Feature;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Behaviour
@@ -9,7 +10,7 @@ namespace Behaviour
     public class EnemySpawnBehaviour : MonoBehaviour
     {
         [SerializeField] private EnemyWaveFeature enemyWaveFeature;
-        [SerializeField] private PlayerTrackingFeature playerTrackingFeature;
+        [SerializeField] private TrackingFeature trackingFeature;
 
         private void Awake()
         {
@@ -18,7 +19,7 @@ namespace Behaviour
                 throw new ArgumentException("No enemyWaveFeature is defined");
             }
 
-            if (playerTrackingFeature == null)
+            if (trackingFeature == null)
             {
                 throw new ArgumentException("No playerTrackingFeature is defined");
             }
@@ -27,7 +28,7 @@ namespace Behaviour
         private void Update()
         {
             EnemyConfig ec = enemyWaveFeature.GetNextWave(Time.time);
-            GameObject player = playerTrackingFeature.GetPlayer();
+            GameObject player = trackingFeature.GetTarget();
             if (ec != null && player)
             {
                 Vector2 playerPosition = player.transform.position;

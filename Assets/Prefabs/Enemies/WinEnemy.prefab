@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementFeature: {fileID: 8644890574328764347}
-  playerTrackingFeature: {fileID: 5217691829235146481}
+  trackingFeature: {fileID: 5217691829235146481}
 --- !u!50 &5456426350157240373
 Rigidbody2D:
   serializedVersion: 4

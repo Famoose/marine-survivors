@@ -1,4 +1,5 @@
 using Data;
+using Data.Enum;
 using Feature;
 using UnityEngine;
 
@@ -11,15 +12,16 @@ namespace Behaviour.item
             GameObject[] collectables = GameObject.FindGameObjectsWithTag("Collectable");
             MovementData movementData = ScriptableObject.CreateInstance<MovementData>();
             movementData.speed = 20;
+            movementData.movementType = MovementType.FollowTarget;
             foreach (var collectable in collectables)
             {
-                PlayerTrackingFeature ptf = collectable.AddComponent<PlayerTrackingFeature>();
-                ptf.SetPlayer(activator);
+                TrackingFeature ptf = collectable.AddComponent<TrackingFeature>();
+                ptf.SetTarget(activator);
                 MovementFeature movementFeature = collectable.AddComponent<MovementFeature>();
                 movementFeature.Initialize(movementData);
-                AIMovementBehaviour aiMovement = collectable.AddComponent<AIMovementBehaviour>();
-                aiMovement.playerTrackingFeature = ptf;
-                aiMovement.movementFeature = movementFeature;
+                TargetMovementBehaviour targetMovement = collectable.AddComponent<TargetMovementBehaviour>();
+                targetMovement.trackingFeature = ptf;
+                targetMovement.movementFeature = movementFeature;
             }
         }
     }
