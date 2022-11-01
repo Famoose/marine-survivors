@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8312052860337782189}
   - component: {fileID: 8384212470163815634}
   - component: {fileID: 6068645009940806084}
+  - component: {fileID: 2141922599}
+  - component: {fileID: 2141922600}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -51,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyWaveFeature: {fileID: 5149308507615590452}
   trackingFeature: {fileID: 6049446736727797460}
-  enemyObserverFeature: {fileID: 0}
+  enemyObserverFeature: {fileID: 8312052860337782189}
 --- !u!114 &5149308507615590452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2664f4ff09d043e284367102f3109f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: a1b9bfa1c21c43947a6f0122e997b2a2, type: 2}
+  initialData: {fileID: 11400000, guid: a1b9bfa1c21c43947a6f0122e997b2a2, type: 2}
 --- !u!114 &6049446736727797460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee7c4fb56f44bbf994d46c8d5b0d327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialData: {fileID: 11400000, guid: b1aa89a8e8171954f91133498855892d, type: 2}
+  initialData: {fileID: 11400000, guid: 8faa447c0fdc9e34bbb5841dc26fa2cd, type: 2}
+  onEnemyDeleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8384212470163815634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyObserverFeature: {fileID: 8312052860337782189}
   trackingFeature: {fileID: 6049446736727797460}
-  destroyRadius: 50
+  destroyRadius: 25
 --- !u!114 &6068645009940806084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,3 +126,34 @@ MonoBehaviour:
   enemyWaveFeature: {fileID: 5149308507615590452}
   trackingFeature: {fileID: 6049446736727797460}
   enemyObserverFeature: {fileID: 8312052860337782189}
+  enemyCollectionFeature: {fileID: 2141922600}
+  enemyStrategyFeature: {fileID: 2141922599}
+--- !u!114 &2141922599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3162367821808661114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366dd803a5d34a79a0a8d90daeb8741d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialData: {fileID: 11400000, guid: f67680e0659969746873e13084337d17, type: 2}
+  onEnemyDeleted:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2141922600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3162367821808661114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b706bdd23c4034b19fbef500298707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialData: {fileID: 11400000, guid: 0e141836a0d0d9e499a0f91a4d2d288d, type: 2}
