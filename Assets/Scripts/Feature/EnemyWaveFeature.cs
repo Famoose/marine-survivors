@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Data;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,15 +9,31 @@ namespace Feature
 {
     public class EnemyWaveFeature : MonoBehaviour
     {
-        [SerializeField] private EnemyWaveConfigData config;
+        [SerializeField] private EnemyWaveConfigData initialData;
+        private EnemyWaveConfigData _data;
         private float _nextWave = 0.0f;
         private int _currentWave = 0;
 
+        public bool IsInitialized { get; private set; }
+
+        public void Initialize(EnemyWaveConfigData waveConfigData)
+        {
+            if (waveConfigData == null)
+            {
+                throw new ArgumentException("initialData was null");
+            }
+
+            _data = ScriptableObject.CreateInstance<EnemyWaveConfigData>();
+            _data.enemyConfigs = waveConfigData.enemyConfigs.Select(ec => ec.Copy()).ToList();
+
+            IsInitialized = true;
+        }
+
         private void Awake()
         {
-            if (config == null)
+            if (initialData != null)
             {
-                throw new ArgumentException("config was null");
+                Initialize(initialData);
             }
         }
 
@@ -23,16 +41,11 @@ namespace Feature
         {
             if (timeOffset >= _nextWave)
             {
-                if (_currentWave < config.enemyConfigs.Count)
+                if (_currentWave < _data.enemyConfigs.Count)
                 {
-                    //stay on the last if out of range
-                    var configEnemyConfig = config.enemyConfigs[_currentWave];
-                    if (_currentWave + 1 < config.enemyConfigs.Count)
-                    {
-                        _currentWave++;
-                    }
-
-                    _nextWave = timeOffset + config.enemyConfigs[_currentWave].timeOffset;
+                    var configEnemyConfig = _data.enemyConfigs[_currentWave];
+                    _nextWave = timeOffset + _data.enemyConfigs[_currentWave].timeOffset;
+                    _currentWave++;
                     return configEnemyConfig;
                 }
             }
@@ -47,12 +60,15 @@ namespace Feature
             var inflictDamageOnCollisionFeature = enemy.GetComponent<InflictDamageOnCollisionFeature>();
             var playerTrackingFeature = enemy.GetComponent<TrackingFeature>();
             var lootFeature = enemy.GetComponent<LootFeature>();
-            
+            var healthFeature = enemy.GetComponent<HealthFeature>();
+
+            enemy.transform.localScale *= enemyConfig.sizeMultiplier;
+
             if (movementFeature && enemyConfig.movementOverride)
             {
                 movementFeature.Initialize(enemyConfig.movementOverride);
             }
-            
+
             if (inflictDamageOnCollisionFeature && enemyConfig.inflictDamageOverride)
             {
                 inflictDamageOnCollisionFeature.Initialize(enemyConfig.inflictDamageOverride);
@@ -68,7 +84,17 @@ namespace Feature
                 lootFeature.Initialize(enemyConfig.lootOverride);
             }
 
-            return gameObject;
+            if (healthFeature && enemyConfig.healthData)
+            {
+                healthFeature.Initialize(enemyConfig.healthData);
+            }
+
+            return enemy;
+        }
+
+        public void AddWaves(List<EnemyConfig> newEnemies)
+        {
+            newEnemies.ForEach(ne => _data.enemyConfigs.Add(ne));
         }
     }
 }

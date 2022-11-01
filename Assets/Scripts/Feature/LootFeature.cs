@@ -19,7 +19,7 @@ namespace Feature
                 throw new ArgumentException("initialData was null");
             }
             _data = ScriptableObject.CreateInstance<LootData>();
-            _data.lootTable = lootData.lootTable;
+            _data.lootTable = lootData.lootTable.Select(l => l.Copy()).ToArray();
 
             IsInitialized = true;
         }
@@ -32,11 +32,11 @@ namespace Feature
             }
         }
 
-        public GameObject[] GetLootTable()
+        public Loot[] GetLootTable()
         {
             if (IsInitialized)
             {
-                return _data.lootTable.Where(l => Random.value < l.probability).Select(l => l.prefab).ToArray();
+                return _data.lootTable.Where(l => Random.value < l.probability).ToArray();
             }
             return null;
         }

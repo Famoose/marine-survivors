@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0716d35f28a24879b78af2e12013de34, type: 3}
+  m_Name: EnemyStrategyData
+  m_EditorClassIdentifier: 
+  baseDifficulty: 0.5
+  bossConfig:
+    lastBossSpawn: 0
+    bossSpawnOffset: 10
+    bossHealthMultiplier: 10
+    bossExpMultiplier: 10
+    bossDamageMultiplier: 2
+  collectables:
+    pearls:
+    - pearl: {fileID: 2926263175696369925, guid: 222eda8f85d71465cb37cb9de4de815c, type: 3}
+      threshold: 0
+    items:
+    - {fileID: 2926263175696369925, guid: 11502da8d424948c583021185a31f225, type: 3}
+    - {fileID: 2926263175696369925, guid: e5c96fd1feb75432a85767e40f148aa8, type: 3}
+    chest: {fileID: 2926263175696369925, guid: 93d3b6ad86f8143539af3900eb3189d9, type: 3}
+  healthFunction:
+    constant: 40
+    multiplier: 1
+  expFunction:
+    constant: 1
+    multiplier: 5
+  damageFunction:
+    constant: 1
+    multiplier: 5
+  amountFunction:
+    constant: 10
+    multiplier: 5
+  walkSpeed: 4.1
+  flySpeed: 2.8
+  strategySleep: 5
+  lastStrategyEvaluation: 0
+  flyProbability: 0.2
+  cutDirectionProbability: 0.5
+  itemDropBaseProbability: 0.05
+  spawnThreshold: 5

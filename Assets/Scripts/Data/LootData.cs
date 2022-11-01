@@ -9,6 +9,17 @@ namespace Data
     {
         public float probability;
         public GameObject prefab;
+        public ScriptableObject overrideData;
+
+        public Loot Copy()
+        {
+            return new Loot
+            {
+                probability = this.probability,
+                prefab = this.prefab,
+                overrideData = this.overrideData
+            };
+        }
     }
     
     [CreateAssetMenu(fileName = "LootData", menuName = "FeatureData/LootData", order = 0)]
