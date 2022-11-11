@@ -1,0 +1,10 @@
+@startuml
+
+package LevelUpMenu {
+    [Level Up Behaviour] as levelUpBeh
+    [Game State Feature] as gameStateFeh
+}
+levelUpBeh -- gameStateFeh
+
+
+@enduml

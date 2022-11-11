@@ -1,10 +1,30 @@
 @startuml
 
 package GameController {
-    [Enemy Spawn Behaviour] as enemyBeh
-    [Enemy Wave Feature] as enemyFea
-}
+    [Enemy Spawn Behaviour] as enemSpawnBeh
+    [Enemy Disappearing Behaviour] as enemyDisappearingBeh
+    [Enemy Stretegy Behaviour] as enemyStrategyBeh
+    [Game Starting Behaviour] as gameStartingBeh
+    [Enemy Wave Feature] as enemyWaveFea
+    [Tracking Feature] as trackingFea
+    [Enemy Observer Feature] as enemyObserverFea
+    [Enemy Strategy Feature] as enemyStrategyFea
+    [Enemy Collection Feature] as enemyCollectionFea
+    [Game State Feature] as gameStateFea
 
-enemyBeh -- enemyFea
+enemSpawnBeh -- enemyWaveFea
+enemSpawnBeh -- trackingFea
+enemSpawnBeh -- enemyObserverFea
+
+enemyDisappearingBeh --- enemyObserverFea
+enemyDisappearingBeh --- trackingFea
+
+enemyStrategyBeh ---- enemyWaveFea
+enemyStrategyBeh ---- trackingFea
+enemyStrategyBeh ---- enemyObserverFea
+enemyStrategyBeh ---- enemyCollectionFea
+enemyStrategyBeh ---- enemyStrategyFea
+
+gameStartingBeh -- gameStateFea
 
 @enduml

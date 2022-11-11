@@ -4,16 +4,37 @@ package Player {
     [Player Input] as playerInput
     [Movement Behaviour] as movementBeh
     [Armed Behaviour] as armedBeh
+    [Damageable Behaviour] as damageableBeh
+    [Collector Behaviour] as collectorBeh
+    [Upleveling Behaviour] as uplevelingBeh
     [Movement Feature] as movementFea
     [Owned Weapon Feature] as weaponFea
     [Ability Feature] as abilityFea
+    [Game State Feature] as gameStateFea
+    [Level Feature] as levelFea
+    [Health Feature] as healthFea
+    [Radius Feature] as radiusFea
 }
+
+damageableBeh -- healthFea
 
 movementBeh -- movementFea
 movementBeh -- abilityFea
+movementBeh -- gameStateFea
 
 armedBeh -- weaponFea
 armedBeh -- abilityFea
+
+collectorBeh --- radiusFea
+collectorBeh --- healthFea
+collectorBeh --- levelFea
+collectorBeh --- weaponFea
+collectorBeh --- abilityFea
+
+uplevelingBeh ---- levelFea
+uplevelingBeh ---- gameStateFea
+uplevelingBeh ---- weaponFea
+uplevelingBeh ---- abilityFea
 
 playerInput .. movementBeh
 
