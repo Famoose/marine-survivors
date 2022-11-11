@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 3435551091540943729}
   - component: {fileID: 387334786894958677}
   - component: {fileID: 1681265069695422328}
+  - component: {fileID: 7187146186711920949}
   m_Layer: 0
   m_Name: TestWeapon1Projectile
   m_TagString: Player Projectile
@@ -220,6 +221,7 @@ MonoBehaviour:
   movementFeature: {fileID: 3441582100339723053}
   movementModification: {fileID: 0}
   abilityFeature: {fileID: -2332590390264046075}
+  gameStateFeature: {fileID: 7187146186711920949}
 --- !u!50 &-2305932644752792912
 Rigidbody2D:
   serializedVersion: 4
@@ -325,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47581202f7c74b2ab3c8e3c9497dbec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inflictDamageData: {fileID: 0}
 --- !u!58 &1681265069695422328
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -341,3 +344,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &7187146186711920949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255925786901577691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b155a47fbd3f490c9dd2fff44ccb3480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 5d77db03e78717e4cbbef7c1e664c4a2, type: 2}
+  onGamePaused:
+    m_PersistentCalls:
+      m_Calls: []
+  onGameUnpaused:
+    m_PersistentCalls:
+      m_Calls: []

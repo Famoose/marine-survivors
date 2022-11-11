@@ -13,6 +13,7 @@ namespace Behaviour
         [SerializeField] private MovementFeature movementFeature;
         [SerializeField] private BehaviourModification movementModification;
         [SerializeField] private AbilityFeature abilityFeature;
+        [SerializeField] private GameStateFeature gameStateFeature;
         private Rigidbody2D _rigidbody;
 
         // modification value
@@ -33,6 +34,11 @@ namespace Behaviour
             if (abilityFeature == null)
             {
                 throw new ArgumentException("No abilityFeature is defined");
+            }
+            
+            if (gameStateFeature == null)
+            {
+                throw new ArgumentException("No gameStateFeature is defined");
             }
         }
 
@@ -80,6 +86,12 @@ namespace Behaviour
 
         void OnMove(InputValue value)
         {
+            // Ignore keyboard inputs, if the game is paused
+            if (gameStateFeature.IsGamePaused())
+            {
+                return;
+            }
+            
             // Listen to player keyboard input
             if (movementFeature.GetMovementData().movementType == MovementType.PlayerInput)
             {
