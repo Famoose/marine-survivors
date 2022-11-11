@@ -47,9 +47,19 @@ namespace Feature
             return activeWeapons;
         }
 
-        public List<WeaponLevelData> GetAvailableWeapons()
+        public List<WeaponLevelData> GetAvailableButNotActiveWeapons()
         {
-            return availableWeapons;
+            return availableWeapons.Except(activeWeapons).ToList();
+        }
+
+        public List<WeaponLevelData> GetActiveButNotCompletelyLeveledUpWeapons()
+        {
+            return activeWeapons.Where(w => !w.IsMaxLevel()).ToList();
+        }
+
+        public bool CanActivateNewWeapon()
+        {
+            return activeWeapons.Count <= maximumWeapons;
         }
 
         public void LevelUpWeapon(string weaponName)

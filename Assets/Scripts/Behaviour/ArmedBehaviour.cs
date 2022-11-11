@@ -11,8 +11,7 @@ namespace Behaviour
         [SerializeField] private OwnedWeaponFeature ownedWeaponFeature;
         [SerializeField] private AbilityFeature abilityFeature;
 
-        private Dictionary<WeaponLevelData, GameObject> _initializedWeapons =
-            new Dictionary<WeaponLevelData, GameObject>();
+        private readonly Dictionary<WeaponLevelData, GameObject> _initializedWeapons = new();
 
         public void Awake()
         {

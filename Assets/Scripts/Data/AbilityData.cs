@@ -28,13 +28,18 @@ namespace Data
     }
 
     [CreateAssetMenu(fileName = "AbilityData", menuName = "FeatureData/AbilityData", order = 0)]
-    public class AbilityData : ScriptableObject
+    public class AbilityData : ScriptableObject, IUpgradableData
     {
         public BehaviourModification behaviourModification;
         [SerializeField] public List<ValueModifier> valueModifiers;
         public string abilityName;
         private int _level = 0;
 
+        public string GetName()
+        {
+            return abilityName;
+        }
+        
         public int GetLevel()
         {
             return _level;
@@ -58,6 +63,11 @@ namespace Data
         public ValueModifier GetValueModifier()
         {
             return valueModifiers[_level];
+        }
+
+        public bool IsMaxLevel()
+        {
+            return _level >= GetMaxLevel();
         }
     }
 }

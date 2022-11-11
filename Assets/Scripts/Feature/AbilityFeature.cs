@@ -55,7 +55,22 @@ namespace Feature
 
         public List<AbilityData> GetAvailableAbilities()
         {
-            return activeAbilities;
+            return availableAbilities;
+        }
+        
+        public List<AbilityData> GetAvailableButNotActiveAbilities()
+        {
+            return availableAbilities.Except(activeAbilities).ToList();
+        }
+
+        public List<AbilityData> GetActiveButNotCompletelyLeveledUpAbilities()
+        {
+            return activeAbilities.Where(w => !w.IsMaxLevel()).ToList();
+        }
+
+        public bool CanActivateNewAbility()
+        {
+            return activeAbilities.Count <= maximumAbilities;
         }
 
         public void LevelUpAbility(AbilityData ability)

@@ -8,11 +8,16 @@ using UnityEngine.Serialization;
 namespace Data
 {
     [CreateAssetMenu(fileName = "WeaponLevelData", menuName = "FeatureData/WeaponLevelData", order = 1)]
-    public class WeaponLevelData : ScriptableObject
+    public class WeaponLevelData : ScriptableObject, IUpgradableData
     {
         public string weaponName;
         public List<WeaponData> perLevelWeaponData;
         private int _level = 0;
+
+        public string GetName()
+        {
+            return weaponName;
+        }
 
         public int GetLevel()
         {
@@ -36,6 +41,11 @@ namespace Data
         public WeaponData GetCurrentLevelsWeaponData()
         {
             return perLevelWeaponData[_level];
+        }
+
+        public bool IsMaxLevel()
+        {
+            return _level >= GetMaxLevel();
         }
     }
 }
