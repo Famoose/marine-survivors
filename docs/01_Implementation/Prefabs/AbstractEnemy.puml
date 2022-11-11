@@ -1,15 +1,25 @@
 @startuml
 
 package Enemy {
-    [AI Movement Behaviour] as aiMovementBeh
+    [Target Movement Behaviour] as targetMovementBeh
     [Damageable Behaviour] as damageableBeh
+    [Inflict Damage On Collision Behaviour] as inflictDamageBeh
+    [Drop Behaviour] as dropBeh
     [Movement Feature] as movementFea
-    [Player Tracking Feature] as playerTrackingFea
     [Health Feature] as healthFea
+    [Inflict Damage On Collision Feature] as inflictDamageFea
+    [Tracking Feature] as trackingFea
+    [Loot Feature] as lootFea
 }
 
-aiMovementBeh -- movementFea
-aiMovementBeh -- playerTrackingFea
+targetMovementBeh --- movementFea
+targetMovementBeh --- trackingFea
+
+inflictDamageBeh -- inflictDamageFea
+
 damageableBeh -- healthFea
+
+dropBeh --- healthFea
+dropBeh --- lootFea
 
 @enduml
