@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedd24ef1c8b4e368fe2ce171aa46e9f, type: 3}
   m_Name: SpeedAbilityData
   m_EditorClassIdentifier: 
-  behaviourModification: {fileID: 0}
+  behaviourModification: {fileID: 11400000, guid: 4a8528c14b58a5744822dd774a4eff6b, type: 2}
   valueModifiers:
   - value: 1.1
     type: 0
