@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 
 namespace Behaviour
 {
     public class FlickerBehaviour : MonoBehaviour
     {
         [SerializeField] private Light2D light;
-        [SerializeField] private float multiplier = 0.1f;
+        [SerializeField] private float multiplier = 0.05f;
+        [SerializeField] private float baseIntensity = 1f;
         private float _interval = 0; 
         private float _lastChange = 0;
         private void Update()
@@ -17,10 +17,10 @@ namespace Behaviour
             {
                 multiplier *= -1;
                 _lastChange = Time.time;
-                _interval = Random.Range(0.2f, 0.8f);
+                _interval = Random.Range(0.2f, 1.4f);
             }
 
-            light.intensity = Mathf.Clamp(light.intensity + multiplier * Time.deltaTime, 0.1f, 1f);
+            light.intensity = Mathf.Clamp(light.intensity + multiplier * Time.deltaTime, 0.1f, baseIntensity);
         }
     }
 }
