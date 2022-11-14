@@ -205,32 +205,32 @@ namespace Behaviour
         {
             //difficulty influence the beginning steepness
             //the healthBaseMultiplier scales the graph
-            float x = time / 60 * difficulty + 1;
-            return _enemyStrategyData.healthFunction.multiplier * (float) Math.Log(x) + 1;
+            float x = (time / 60) + 1;
+            return _enemyStrategyData.healthFunction.multiplier * difficulty * (float) Math.Log(x) + 1;
         }
 
         private float CalculateDamageMultiplier(float time, float difficulty)
         {
             //difficulty influence the beginning steepness
             //the damageBaseMultiplier scales the graph
-            float x = time / 60 * difficulty + 1;
-            return _enemyStrategyData.damageFunction.multiplier * (float) Math.Log(x) + 1;
+            float x = (time / 60) + 1;
+            return _enemyStrategyData.damageFunction.multiplier * difficulty * (float) Math.Log(x) + 1;
         }
 
         private float CalculateExpMultiplier(float time, float difficulty)
         {
             //difficulty influence the beginning steepness
             //the expBaseMultiplier scales the graph
-            float x = time / 60 * difficulty + 1;
-            return _enemyStrategyData.expFunction.multiplier * (float) Math.Log(x) + 1;
+            float x = (time / 60) + 1;
+            return _enemyStrategyData.expFunction.multiplier * difficulty * (float) Math.Log(x) + 1;
         }
 
         private float CalculateAmountMultiplier(float time, float difficulty)
         {
             //difficulty influence the beginning steepness
             //the amountBaseMultiplier scales the graph
-            float x = time / 60 * difficulty + 1;
-            return _enemyStrategyData.amountFunction.multiplier * (float) Math.Log(x) + 1;
+            float x = (time / 60) + 1;
+            return _enemyStrategyData.amountFunction.multiplier * difficulty * (float) Math.Log(x) + 1;
         }
 
         private HealthData CreateHealthData(float multiplier)

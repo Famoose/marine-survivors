@@ -22,20 +22,21 @@ namespace Feature
             }
 
             _data = ScriptableObject.CreateInstance<EnemyStrategyData>();
-           _data.bossConfig = strategyData.bossConfig.Copy();
-           _data.collectables = strategyData.collectables.Copy();
-           _data.healthFunction = strategyData.healthFunction.Copy();
-           _data.expFunction = strategyData.expFunction.Copy();
-           _data.damageFunction = strategyData.damageFunction.Copy();
-           _data.amountFunction = strategyData.amountFunction.Copy();
-           _data.walkSpeed = strategyData.walkSpeed;
-           _data.flySpeed = strategyData.flySpeed;
-           _data.strategySleep = strategyData.strategySleep;
-           _data.lastStrategyEvaluation = strategyData.lastStrategyEvaluation;
-           _data.flyProbability = strategyData.flyProbability;
-           _data.cutDirectionProbability = strategyData.cutDirectionProbability;
-           _data.itemDropBaseProbability = strategyData.itemDropBaseProbability;
-           _data.spawnThreshold = strategyData.spawnThreshold;
+            _data.baseDifficulty = strategyData.baseDifficulty;
+            _data.bossConfig = strategyData.bossConfig.Copy();
+            _data.collectables = strategyData.collectables.Copy();
+            _data.healthFunction = strategyData.healthFunction.Copy();
+            _data.expFunction = strategyData.expFunction.Copy();
+            _data.damageFunction = strategyData.damageFunction.Copy();
+            _data.amountFunction = strategyData.amountFunction.Copy();
+            _data.walkSpeed = strategyData.walkSpeed;
+            _data.flySpeed = strategyData.flySpeed;
+            _data.strategySleep = strategyData.strategySleep;
+            _data.lastStrategyEvaluation = strategyData.lastStrategyEvaluation;
+            _data.flyProbability = strategyData.flyProbability;
+            _data.cutDirectionProbability = strategyData.cutDirectionProbability;
+            _data.itemDropBaseProbability = strategyData.itemDropBaseProbability;
+            _data.spawnThreshold = strategyData.spawnThreshold;
 
             IsInitialized = true;
         }
@@ -54,6 +55,7 @@ namespace Feature
             {
                 return _data;
             }
+
             throw new ArgumentException("data is not initialized");
         }
     }
