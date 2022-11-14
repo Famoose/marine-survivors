@@ -15,6 +15,7 @@ namespace Behaviour
         [SerializeField] private AbilityFeature abilityFeature;
         [SerializeField] private GameStateFeature gameStateFeature;
         private Rigidbody2D _rigidbody;
+        private Transform _transform;
 
         // modification value
         private float _movementModificationFactor = 1;
@@ -45,6 +46,7 @@ namespace Behaviour
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _transform = GetComponent<Transform>();
             if (abilityFeature && movementModification)
             {
                 CalculateMovementModification();
@@ -82,6 +84,14 @@ namespace Behaviour
 
             _rigidbody.MovePosition(_rigidbody.position +
                                     data.movement * (Time.fixedDeltaTime * _movementModificationFactor));
+
+            Vector3 localScale = _transform.localScale;
+            if (localScale.x < 0 && data.movement.x < 0 || localScale.x > 0 && data.movement.x > 0)
+            {
+                // Flip displayed direction
+                localScale.Set(localScale.x * -1, localScale.y, localScale.z);
+                _transform.localScale = localScale;
+            }
         }
 
         void OnMove(InputValue value)
