@@ -43,6 +43,7 @@ namespace Behaviour
         private void WeaponFeatureOnCooledDown(object sender, EventArgs e)
         {
             GameObject projectile = Instantiate(weaponFeature.GetProjectilePrefab(), _currentTransform);
+            projectile.transform.parent = _currentTransform.parent.parent;
             DisappearingBehaviour disappearingBehaviour = projectile.GetComponent<DisappearingBehaviour>();
             if (disappearingBehaviour == null)
             {
