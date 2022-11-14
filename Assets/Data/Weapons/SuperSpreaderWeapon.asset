@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Super Spreader
   perLevelWeaponData:
-  - coolDownTime: 4
+  - coolDownTime: 3
     currentCoolDownTime: 0
     projectileSpeed: 10
     projectileAmount: 3
     projectileMovementType: 1
-    projectileInitialMovementType: 1
+    projectileInitialMovementType: 2
     projectileInitialMovementDirection: {x: 0, y: 0}
     projectileLifetime: 2
-    projectileInflictedDamage: 10
+    projectileInflictedDamage: 50
     prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}

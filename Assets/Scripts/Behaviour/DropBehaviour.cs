@@ -2,6 +2,7 @@ using System;
 using Data;
 using Feature;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Behaviour
 {
@@ -24,7 +25,13 @@ namespace Behaviour
         {
             foreach (var loot in lootFeature.GetLootTable())
             {
-                var lootGameObject = Instantiate(loot.prefab, gameObject.transform.position, Quaternion.identity);
+                Vector3 currentPosition = gameObject.transform.position;
+                Vector3 spawnPosition = new Vector3(
+                    currentPosition.x + Random.Range(0f, 1f), 
+                    currentPosition.y + Random.Range(0f, 1f), 
+                    currentPosition.z);
+                
+                var lootGameObject = Instantiate(loot.prefab, spawnPosition, Quaternion.identity);
                 //if override data is set, get the collectable type and try to map the override accordingly.
                 //currently only implemented for pearls to let the exp be set.
                 if (loot.overrideData)
