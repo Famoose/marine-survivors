@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4777343501306101562}
   - component: {fileID: -7791900567411444939}
   m_Layer: 0
-  m_Name: TestWeapon1
+  m_Name: SuperSpreaderWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

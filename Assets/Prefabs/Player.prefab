@@ -3168,8 +3168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeWeapons:
+  - {fileID: 11400000, guid: 5049f37565cf22d46aeb13b4dbafc03f, type: 2}
+  availableWeapons:
   - {fileID: 11400000, guid: 9b4382854d55b5f4885ca989c57f79c5, type: 2}
-  availableWeapons: []
   maximumWeapons: 4
   onWeaponLevelUp:
     m_PersistentCalls:

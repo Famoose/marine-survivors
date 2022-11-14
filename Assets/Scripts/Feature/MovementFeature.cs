@@ -13,9 +13,15 @@ namespace Feature
     {
         [SerializeField] private MovementData initialData;
         private MovementData _data;
+        private Vector2 _parentDirection;
         public bool IsInitialized { get; private set; }
 
         public void Initialize(MovementData movementData)
+        {
+            Initialize(movementData, Vector2.zero);
+        }
+
+        public void Initialize(MovementData movementData, Vector2 parentDirection)
         {
             if (movementData == null)
             {
@@ -26,6 +32,8 @@ namespace Feature
             _data.initialMovementType = movementData.initialMovementType;
             _data.speed = movementData.speed;
             _data.movement = movementData.movement;
+
+            _parentDirection = parentDirection;
 
             IsInitialized = true;
             StartMovement();
@@ -45,6 +53,9 @@ namespace Feature
             {
                 case InitialMovementType.DerivedFromMovement:
                     SetMovement(_data.movement);
+                    break;
+                case InitialMovementType.DerivedFromParentHorizontal:
+                    SetMovement(new Vector2(-1 * _parentDirection.normalized.x, 0f));
                     break;
                 case InitialMovementType.Random:
                     SetMovement(new Vector2(

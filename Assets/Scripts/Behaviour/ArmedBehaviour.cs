@@ -33,6 +33,7 @@ namespace Behaviour
         {
             WeaponData currentLevelWeaponData = weaponLevelData.GetCurrentLevelsWeaponData();
             GameObject weapon = Instantiate(currentLevelWeaponData.prefab, GetComponent<Transform>());
+            weapon.transform.localPosition = currentLevelWeaponData.weaponPositionOffset;
             WeaponBehaviour weaponBehaviour = weapon.GetComponent<WeaponBehaviour>();
             if (weaponBehaviour == null)
             {

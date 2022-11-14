@@ -11,6 +11,7 @@ namespace Data
         public float coolDownTime;
         public float currentCoolDownTime;
         public float projectileSpeed;
+        public int projectileAmount;
         public MovementType projectileMovementType;
         public InitialMovementType projectileInitialMovementType;
         public Vector2 projectileInitialMovementDirection;
@@ -18,6 +19,7 @@ namespace Data
         public float projectileInflictedDamage;
         public GameObject prefab;
         public GameObject projectilePrefab;
+        public Vector3 weaponPositionOffset;
 
         public WeaponData Copy()
         {
@@ -26,13 +28,15 @@ namespace Data
                 coolDownTime = this.coolDownTime,
                 currentCoolDownTime = this.currentCoolDownTime,
                 projectileSpeed = this.projectileSpeed,
+                projectileAmount = this.projectileAmount,
                 projectileMovementType = this.projectileMovementType,
                 projectileInitialMovementType = this.projectileInitialMovementType,
                 projectileInitialMovementDirection = this.projectileInitialMovementDirection,
                 projectileLifetime = this.projectileLifetime,
                 projectileInflictedDamage = this.projectileInflictedDamage,
                 prefab = this.prefab,
-                projectilePrefab = this.projectilePrefab
+                projectilePrefab = this.projectilePrefab,
+                weaponPositionOffset = this.weaponPositionOffset
             };
         }
     }

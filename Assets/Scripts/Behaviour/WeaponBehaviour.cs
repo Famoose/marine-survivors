@@ -42,6 +42,14 @@ namespace Behaviour
 
         private void WeaponFeatureOnCooledDown(object sender, EventArgs e)
         {
+            for (int i = 0; i < weaponFeature.GetWeaponData().projectileAmount; i++)
+            {
+                ShootProjectile();
+            }
+        }
+
+        private void ShootProjectile()
+        { 
             GameObject projectile = Instantiate(weaponFeature.GetProjectilePrefab(), _currentTransform);
             projectile.transform.parent = _currentTransform.parent.parent;
             DisappearingBehaviour disappearingBehaviour = projectile.GetComponent<DisappearingBehaviour>();
@@ -79,7 +87,7 @@ namespace Behaviour
             movementData.speed = weaponFeature.GetWeaponData().projectileSpeed;
             movementData.movementType = weaponFeature.GetWeaponData().projectileMovementType;
             movementData.initialMovementType = weaponFeature.GetWeaponData().projectileInitialMovementType;
-            movementFeature.Initialize(movementData);
+            movementFeature.Initialize(movementData, transform.parent.localScale);
 
             InflictDamageData inflictDamageData = ScriptableObject.CreateInstance<InflictDamageData>();
             inflictDamageData.inflictedDamage = weaponFeature.GetWeaponData().projectileInflictedDamage;

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e5d2877b3413f83a9bb7a265fc57e, type: 3}
+  m_Name: TorpedoWeapon
+  m_EditorClassIdentifier: 
+  weaponName: Torpedo
+  perLevelWeaponData:
+  - coolDownTime: 5
+    currentCoolDownTime: 0
+    projectileSpeed: 5
+    projectileAmount: 1
+    projectileMovementType: 1
+    projectileInitialMovementType: 1
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 5
+    projectileInflictedDamage: 20
+    prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
