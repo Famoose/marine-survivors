@@ -25,6 +25,7 @@ namespace Feature
             _healthData = ScriptableObject.CreateInstance<HealthData>();
             _healthData.health = healthData.health;
             _healthData.maxHealth = healthData.maxHealth;
+            _healthData.shouldDestroyOnDeath = healthData.shouldDestroyOnDeath;
 
             IsInitialized = true;
         }
@@ -44,6 +45,15 @@ namespace Feature
                 return null;
             }
             return _healthData.health;
+        }
+        
+        public bool? ShouldDestroyOnDeath()
+        {
+            if (!IsInitialized)
+            {
+                return null;
+            }
+            return _healthData.shouldDestroyOnDeath;
         }
         
         public float? GetMaxHealth()

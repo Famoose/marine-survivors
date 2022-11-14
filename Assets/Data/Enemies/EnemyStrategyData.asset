@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0716d35f28a24879b78af2e12013de34, type: 3}
   m_Name: EnemyStrategyData
   m_EditorClassIdentifier: 
-  baseDifficulty: 0.5
+  baseDifficulty: 1
   bossConfig:
     lastBossSpawn: 0
-    bossSpawnOffset: 10
+    bossSpawnOffset: 200
     bossHealthMultiplier: 10
     bossExpMultiplier: 10
     bossDamageMultiplier: 2

@@ -27,9 +27,10 @@ namespace Behaviour
 
         private void Update()
         {
-            if (Time.time > _lastEnemyCheck + _enemyCheckOffset)
+            var target = trackingFeature.GetTarget();
+            if (target && Time.time > _lastEnemyCheck + _enemyCheckOffset)
             {
-                Vector3 playerPosition = trackingFeature.GetTarget().transform.position;
+                Vector3 playerPosition = target.transform.position;
                 
                 //iterate from reverse to save remove while iterating
                 var allActiveEnemies = enemyObserverFeature.GetAllActiveEnemies();

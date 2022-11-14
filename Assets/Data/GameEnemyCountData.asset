@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d601da54ecc94fc193da2bc06b27e4fe, type: 3}
-  m_Name: PlayerHealthData
+  m_Script: {fileID: 11500000, guid: 87fd4b9cd2454ce1b13c1b670a5f010d, type: 3}
+  m_Name: GameEnemyCountData
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  shouldDestroyOnDeath: 0
+  enemyKilled: 0

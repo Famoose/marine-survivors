@@ -12,6 +12,7 @@ namespace Feature
         [SerializeField] private EnemyCollectionData initialData;
         private EnemyCollectionData _data;
         public UnityEvent<EnemyData> onEnemyDeleted;
+        public UnityEvent<GameObject> onEnemyDeath;
 
         public bool IsInitialized { get; private set; }
 
@@ -38,14 +39,25 @@ namespace Feature
 
         public void AddEnemy(GameObject enemy, EnemyConfig ec)
         {
+            AddOnEnemyDeathListener(enemy, () => EnemyDied(enemy));
+            _data.enemies.Add(new EnemyData{enemy = enemy, enemyConfig = ec});
+        }
+
+        private void EnemyDied(GameObject enemy)
+        {
+            onEnemyDeath.Invoke(enemy);
+            RemoveEnemy(enemy);
+        }
+
+        private void AddOnEnemyDeathListener(GameObject enemy, UnityAction call)
+        {
             HealthFeature healthFeature = enemy.GetComponent<HealthFeature>();
             if (!healthFeature)
             {
                 throw new ArgumentException("enemy had no health feature");
             }
 
-            healthFeature.onDeath.AddListener(() => RemoveEnemy(enemy));
-            _data.enemies.Add(new EnemyData{enemy = enemy, enemyConfig = ec});
+            healthFeature.onDeath.AddListener(call);
         }
 
         public List<EnemyData> GetAllActiveEnemies()

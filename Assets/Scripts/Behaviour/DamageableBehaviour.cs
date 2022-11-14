@@ -19,8 +19,15 @@ namespace Behaviour
             {
                 throw new ArgumentException("No HealthFeature is defined");
             }
-            
-            healthFeature.onDeath.AddListener(OnDeath);
+        }
+
+        private void Start()
+        {
+            var shouldDestroyOnDeath = healthFeature.ShouldDestroyOnDeath();
+            if (shouldDestroyOnDeath.HasValue)
+            {
+                healthFeature.onDeath.AddListener(OnDeath);
+            }
         }
 
         private void OnDeath()
