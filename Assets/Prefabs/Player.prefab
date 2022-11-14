@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 7707565932085502250}
   - component: {fileID: 25882680142968948}
   - component: {fileID: -8947302358799816600}
+  - component: {fileID: 2172530278888253891}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -722,6 +723,8 @@ MonoBehaviour:
   activeAbilities: []
   availableAbilities:
   - {fileID: 11400000, guid: d61d2311f4ca094419a352cc2ee94101, type: 2}
+  - {fileID: 11400000, guid: 51fc4c32bceb40046b32d6305a2a5431, type: 2}
+  - {fileID: 11400000, guid: ff1dec0c41c53f248b7e949486fbae40, type: 2}
   maximumAbilities: 6
   onAbilityLevelUp:
     m_PersistentCalls:
@@ -823,6 +826,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFeature: {fileID: 1730395456840981620}
+  abilityFeature: {fileID: 5688216145403882591}
+  damageReductionModification: {fileID: 11400000, guid: b84f0aa07ab1f214e8169aab81b5f692, type: 2}
 --- !u!114 &780954653444615509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,6 +893,21 @@ MonoBehaviour:
   gameStateFeature: {fileID: 25882680142968948}
   ownedWeaponFeature: {fileID: 9196224391041051038}
   abilityFeature: {fileID: 5688216145403882591}
+--- !u!114 &2172530278888253891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388919501434285819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2506635948f749b29323c582b42518ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthFeature: {fileID: 1730395456840981620}
+  abilityFeature: {fileID: 5688216145403882591}
+  healthBehaviourModification: {fileID: 11400000, guid: a785999456ef3644b829549faf544f5c, type: 2}
 --- !u!1001 &4369827832261201045
 PrefabInstance:
   m_ObjectHideFlags: 0

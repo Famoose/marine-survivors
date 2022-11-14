@@ -24,6 +24,7 @@ namespace Feature
             }
             _healthData = ScriptableObject.CreateInstance<HealthData>();
             _healthData.health = healthData.health;
+            _healthData.maxHealth = healthData.maxHealth;
 
             IsInitialized = true;
         }
@@ -44,6 +45,15 @@ namespace Feature
             }
             return _healthData.health;
         }
+        
+        public float? GetMaxHealth()
+        {
+            if (!IsInitialized)
+            {
+                return null;
+            }
+            return _healthData.maxHealth;
+        }
 
         public void AddHealth(float value)
         {
@@ -52,6 +62,7 @@ namespace Feature
                 return;
             }
             _healthData.health += value;
+            _healthData.health = Mathf.Clamp(_healthData.health, 0, _healthData.maxHealth);
             CheckForDeath();
             onHealthChange.Invoke(_healthData.health);
         }
@@ -64,6 +75,16 @@ namespace Feature
             }
             _healthData.health -= value;
             CheckForDeath();
+            onHealthChange.Invoke(_healthData.health);
+        }
+
+        public void SetMaxHealth(float value)
+        {
+            if (!IsInitialized)
+            {
+                return;
+            }
+            _healthData.maxHealth = value;
             onHealthChange.Invoke(_healthData.health);
         }
 

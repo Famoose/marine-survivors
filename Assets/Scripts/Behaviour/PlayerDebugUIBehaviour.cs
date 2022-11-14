@@ -33,7 +33,7 @@ namespace Behaviour
 
         private void RenderDebugStats()
         {
-            textHealth.text = String.Format("Health: {0}", this.healthFeature.GetHealth());
+            textHealth.text = String.Format("Health: {0:0}/{1}", this.healthFeature.GetHealth(), this.healthFeature.GetMaxHealth());
             textLevel.text = String.Format("Level: {0}", this.levelFeature.GetLevel());
             textLevelPercent.text = String.Format("Level%: {0:0.00}", this.levelFeature.GetLevelProgressPercent());
             textAbilitiesActive.text = String.Format("Abilities Active: {0}", this.abilityFeature.GetActiveAbilities().Count);

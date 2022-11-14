@@ -6,5 +6,6 @@ namespace Data
     public class HealthData: ScriptableObject
     {
         public float health = 100;
+        public float maxHealth = 100;
     }
 }
