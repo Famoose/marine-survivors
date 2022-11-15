@@ -4943,6 +4943,7 @@ GameObject:
   - component: {fileID: 387334786894958677}
   - component: {fileID: 1681265069695422328}
   - component: {fileID: 7187146186711920949}
+  - component: {fileID: 3522735920512615119}
   m_Layer: 0
   m_Name: TorpedoProjectile
   m_TagString: Player Projectile
@@ -5005,8 +5006,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1327080843
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e15dc2e32d54b94c92ecf7faa300ef6, type: 3}
   m_Color: {r: 0.60942507, g: 0.7704727, b: 0.7830189, a: 1}
@@ -5176,3 +5177,30 @@ MonoBehaviour:
   onGameUnpaused:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3522735920512615119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255925786901577691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: e1a79f3600000000755ae6b0afa88df5
+  m_ShapePath:
+  - {x: -0.15, y: -0.05, z: 0}
+  - {x: -0.15, y: 0.05, z: 0}
+  - {x: 0.15, y: 0.05, z: 0}
+  - {x: 0.15, y: -0.05, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -68794

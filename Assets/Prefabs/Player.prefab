@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Intensity: 0.7
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: e1a79f3600000000755ae6b0afa88df5
+  m_ApplyToSortingLayers: e1a79f3600000000755ae6b0afa88df5b50d6bbf
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -238,6 +238,8 @@ MonoBehaviour:
   light: {fileID: 3574067395678881520}
   multiplier: 0.1
   baseIntensity: 1
+  intervalTimeMin: 0.2
+  intervalTimeMax: 1.4
 --- !u!1 &6660199467481718598
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,8 +367,8 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.6
   m_Color: {r: 1, g: 0.7564355, b: 0.4764151, a: 1}
-  m_Intensity: 1.5
-  m_LightVolumeIntensity: 0.5
+  m_Intensity: 1
+  m_LightVolumeIntensity: 0.2
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: e1a79f3600000000755ae6b0afa88df5
   m_LightCookieSprite: {fileID: 0}
@@ -454,6 +456,7 @@ GameObject:
   - component: {fileID: 25882680142968948}
   - component: {fileID: -8947302358799816600}
   - component: {fileID: 2172530278888253891}
+  - component: {fileID: -5048498606006033436}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -657,8 +660,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1327080843
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 51a7ff3468bc74743b49029c62ed3be8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -908,6 +911,51 @@ MonoBehaviour:
   healthFeature: {fileID: 1730395456840981620}
   abilityFeature: {fileID: 5688216145403882591}
   healthBehaviourModification: {fileID: 11400000, guid: a785999456ef3644b829549faf544f5c, type: 2}
+--- !u!114 &-5048498606006033436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388919501434285819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: e1a79f3600000000755ae6b0afa88df5
+  m_ShapePath:
+  - {x: -0.7237844, y: -0.20959198, z: 0}
+  - {x: -0.71447766, y: -0.06768644, z: 0}
+  - {x: -0.5769822, y: 0.19245628, z: 0}
+  - {x: -0.35384792, y: 0.32827714, z: 0}
+  - {x: -0.24066389, y: 0.33151096, z: 0}
+  - {x: -0.35061413, y: 0.4964363, z: 0}
+  - {x: -0.26006687, y: 0.49967015, z: 0}
+  - {x: -0.06280315, y: 0.33151096, z: 0}
+  - {x: 0.39640078, y: 0.29593885, z: 0}
+  - {x: 0.7615356, y: 0.4657268, z: 0}
+  - {x: 0.8706448, y: 0.46342498, z: 0}
+  - {x: 0.5625554, y: 0.28272772, z: 0}
+  - {x: 0.5516006, y: 0.00053459406, z: 0}
+  - {x: 0.486218, y: -0.06206575, z: 0}
+  - {x: 0.4778713, y: -0.15944406, z: 0}
+  - {x: 0.37214625, y: -0.17613748, z: 0}
+  - {x: 0.35406172, y: -0.29299146, z: 0}
+  - {x: 0.06053567, y: -0.287427, z: 0}
+  - {x: -0.23299035, y: -0.3708941, z: 0}
+  - {x: -0.6019921, y: -0.498357, z: 0}
+  - {x: -0.86733, y: -0.3926699, z: 0}
+  - {x: -0.6919947, y: -0.2923492, z: 0}
+  m_ShapePathHash: -335917526
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 397374
 --- !u!1001 &4369827832261201045
 PrefabInstance:
   m_ObjectHideFlags: 0
