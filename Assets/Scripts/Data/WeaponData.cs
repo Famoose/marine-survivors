@@ -1,7 +1,6 @@
 using System;
 using Data.Enum;
 using UnityEngine;
-using UnityEngine.Rendering.Universal.Internal;
 
 namespace Data
 {

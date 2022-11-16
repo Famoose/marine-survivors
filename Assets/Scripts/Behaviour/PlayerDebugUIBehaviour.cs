@@ -1,9 +1,7 @@
 using System;
-using Data;
 using Feature;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Behaviour
 {

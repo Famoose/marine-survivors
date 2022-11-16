@@ -2,7 +2,6 @@ using System;
 using Data;
 using Data.Enum;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Feature
 {

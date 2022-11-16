@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Tileset
     /// public or tagged with the [SerializeField] attribute) in
     /// the target MonoBehaviour.
     /// </summary>
-    [System.AttributeUsage(System.AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Field)]
     public class InspectorButtonAttribute : PropertyAttribute
     {
         public static float kDefaultButtonWidth = 80;
@@ -42,7 +43,7 @@ namespace Tileset
             Rect buttonRect = new Rect(position.x + (position.width - inspectorButtonAttribute.ButtonWidth) * 0.5f, position.y, inspectorButtonAttribute.ButtonWidth, position.height);
             if (GUI.Button(buttonRect, label.text))
             {
-                System.Type eventOwnerType = prop.serializedObject.targetObject.GetType();
+                Type eventOwnerType = prop.serializedObject.targetObject.GetType();
                 string eventName = inspectorButtonAttribute.MethodName;
 
                 if (_eventMethodInfo == null)

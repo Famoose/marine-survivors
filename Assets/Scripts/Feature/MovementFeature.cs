@@ -2,9 +2,6 @@ using System;
 using Data;
 using Data.Enum;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Feature

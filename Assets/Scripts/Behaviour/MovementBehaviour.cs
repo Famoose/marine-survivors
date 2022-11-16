@@ -4,7 +4,6 @@ using Data.Enum;
 using Feature;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Behaviour
 {

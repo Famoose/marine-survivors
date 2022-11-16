@@ -1,10 +1,7 @@
 using System;
 using Data;
-using Data.Enum;
-using UnityEditor.U2D.Path;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Feature
 {
