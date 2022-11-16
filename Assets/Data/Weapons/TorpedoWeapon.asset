@@ -26,3 +26,39 @@ MonoBehaviour:
     prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - coolDownTime: 1
+    currentCoolDownTime: 0
+    projectileSpeed: 6
+    projectileAmount: 1
+    projectileMovementType: 1
+    projectileInitialMovementType: 1
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 6
+    projectileInflictedDamage: 70
+    prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - coolDownTime: 0.5
+    currentCoolDownTime: 0
+    projectileSpeed: 8
+    projectileAmount: 1
+    projectileMovementType: 1
+    projectileInitialMovementType: 1
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 6
+    projectileInflictedDamage: 90
+    prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - coolDownTime: 0.2
+    currentCoolDownTime: 0
+    projectileSpeed: 8
+    projectileAmount: 1
+    projectileMovementType: 1
+    projectileInitialMovementType: 1
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 8
+    projectileInflictedDamage: 110
+    prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}

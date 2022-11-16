@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Data;
 using Feature;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Behaviour
 {
@@ -12,12 +13,22 @@ namespace Behaviour
         [SerializeField] private HealthFeature healthFeature;
         [SerializeField] private AbilityFeature abilityFeature;
         [SerializeField] private BehaviourModification damageReductionModification;
+        [SerializeField] private GameObject damageIndicator;
+        private bool _hasDamageIndicator;
+        private Image _damageIndicatorImage;
+        private float _damageIndicatorShowTime;
 
         private void Awake()
         {
             if (healthFeature == null)
             {
                 throw new ArgumentException("No HealthFeature is defined");
+            }
+
+            if (damageIndicator != null)
+            {
+                _damageIndicatorImage = damageIndicator.transform.Find("DamageIndicator").GetComponent<Image>();
+                _hasDamageIndicator = _damageIndicatorImage != null;
             }
         }
 
@@ -27,6 +38,23 @@ namespace Behaviour
             if (shouldDestroyOnDeath.HasValue)
             {
                 healthFeature.onDeath.AddListener(OnDeath);
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if (_hasDamageIndicator && _damageIndicatorShowTime > 0)
+            {
+                _damageIndicatorShowTime -= Time.deltaTime;
+                _damageIndicatorImage.color = new Color(
+                    _damageIndicatorImage.color.r, 
+                    _damageIndicatorImage.color.g, 
+                    _damageIndicatorImage.color.b,
+                    _damageIndicatorImage.color.a - 0.2f * Time.deltaTime);
+            }
+            else
+            {
+                damageIndicator.SetActive(false);
             }
         }
 
@@ -58,6 +86,13 @@ namespace Behaviour
             if (reduction < damage)
             {
                 healthFeature.ReduceHealth(damage - reduction);
+            }
+
+            if (_hasDamageIndicator)
+            {
+                damageIndicator.SetActive(true);
+                _damageIndicatorShowTime = 2f;
+                _damageIndicatorImage.color = new Color(1f, 1f, 1f, 0.3f);
             }
         }
     }
