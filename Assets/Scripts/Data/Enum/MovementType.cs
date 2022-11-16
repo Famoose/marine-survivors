@@ -4,6 +4,7 @@ namespace Data.Enum
     {
         PlayerInput,
         Constant,
-        FollowTarget
+        FollowTarget,
+        Reductive
     }
 }

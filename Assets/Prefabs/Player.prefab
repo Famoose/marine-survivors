@@ -905,9 +905,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeWeapons:
-  - {fileID: 11400000, guid: 5049f37565cf22d46aeb13b4dbafc03f, type: 2}
+  - {fileID: 11400000, guid: b9ab341374e8bb74e8dbfd2b7b9d4095, type: 2}
   availableWeapons:
   - {fileID: 11400000, guid: 9b4382854d55b5f4885ca989c57f79c5, type: 2}
+  - {fileID: 11400000, guid: 5049f37565cf22d46aeb13b4dbafc03f, type: 2}
   maximumWeapons: 4
   onWeaponLevelUp:
     m_PersistentCalls:
@@ -1055,7 +1056,7 @@ MonoBehaviour:
   - {x: -0.6919947, y: -0.2923492, z: 0}
   m_ShapePathHash: -335917526
   m_Mesh: {fileID: 0}
-  m_InstanceId: 62626
+  m_InstanceId: 61860
 --- !u!1001 &4369827832261201045
 PrefabInstance:
   m_ObjectHideFlags: 0

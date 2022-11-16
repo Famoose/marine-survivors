@@ -75,10 +75,16 @@ namespace Behaviour
         {
             MovementData data = movementFeature.GetMovementData();
 
-            if (data.movementType == MovementType.Constant)
+            switch (data.movementType)
             {
-                // Move for a constant value in the current direction
-                movementFeature.ApplyConstantMovement();
+                case MovementType.Constant:
+                    // Move for a constant value in the current direction
+                    movementFeature.ApplyConstantMovement();
+                    break;
+                case MovementType.Reductive:
+                    // Move for a value in the current direction and reduce the speed for the next loop
+                    movementFeature.ApplyMovementAndReduceSpeed();
+                    break;
             }
 
             _rigidbody.MovePosition(_rigidbody.position +

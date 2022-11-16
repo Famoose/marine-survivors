@@ -85,5 +85,15 @@ namespace Feature
             }
             _data.movement = _data.movement.normalized * _data.speed;
         }
+
+        public void ApplyMovementAndReduceSpeed()
+        {
+            if (!IsInitialized)
+            {
+                return;
+            }
+            ApplyConstantMovement();
+            _data.speed = Math.Max(_data.speed - 0.01f, 0f);
+        }
     }
 }
