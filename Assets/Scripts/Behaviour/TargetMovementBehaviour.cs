@@ -46,6 +46,7 @@ namespace Behaviour
                     if (data.movementType == MovementType.FollowTarget)
                     {
                         direction = (target.transform.position - position).normalized;
+                        mf.SetMovement(direction);
                     }
                 
                     rb.MovePosition(position + direction * (Time.fixedDeltaTime * data.speed));

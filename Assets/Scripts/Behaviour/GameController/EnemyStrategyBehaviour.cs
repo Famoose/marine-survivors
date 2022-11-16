@@ -17,6 +17,7 @@ namespace Behaviour
         [SerializeField] private EnemyObserverFeature enemyObserverFeature;
         [SerializeField] private EnemyCollectionFeature enemyCollectionFeature;
         [SerializeField] private EnemyStrategyFeature enemyStrategyFeature;
+        [SerializeField] private GameStateFeature gameStateFeature;
 
         private MovementFeature _playerMovementFeature;
         private EnemyStrategyData _enemyStrategyData;
@@ -47,6 +48,11 @@ namespace Behaviour
             {
                 throw new ArgumentException("No enemyStrategyFeature is defined");
             }
+            
+            if (gameStateFeature == null)
+            {
+                throw new ArgumentException("No gameStateFeature is defined");
+            }
         }
 
         private void Start()
@@ -58,11 +64,13 @@ namespace Behaviour
             }
 
             _enemyStrategyData = enemyStrategyFeature.GetStrategyData();
+            _enemyStrategyData.lastStrategyEvaluation = Time.time;
         }
 
         private void Update()
         {
-            if (Time.time > _enemyStrategyData.lastStrategyEvaluation + _enemyStrategyData.strategySleep)
+            
+            if (Time.time > _enemyStrategyData.lastStrategyEvaluation + _enemyStrategyData.strategySleep && !gameStateFeature.IsGamePaused())
             {
                 List<EnemyConfig> newEnemies = new List<EnemyConfig>();
                 int currentActiveEnemies = enemyObserverFeature.GetAllActiveEnemies().Count;

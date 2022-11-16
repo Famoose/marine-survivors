@@ -6,7 +6,7 @@ namespace Behaviour
 {
     public class FlickerBehaviour : MonoBehaviour
     {
-        [SerializeField] private Light2D light;
+        [SerializeField] private new Light2D light;
         [SerializeField] private float multiplier = 0.05f;
         [SerializeField] private float baseIntensity = 1f;
         [SerializeField] private float intervalTimeMin = 0.2f;
