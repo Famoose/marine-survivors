@@ -99,6 +99,7 @@ namespace Behaviour
             // Ignore keyboard inputs, if the game is paused
             if (gameStateFeature.IsGamePaused())
             {
+                movementFeature.SetMovement(Vector2.zero);
                 return;
             }
             

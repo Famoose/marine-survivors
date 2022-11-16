@@ -43,18 +43,21 @@ namespace Behaviour
 
         private void FixedUpdate()
         {
-            if (_hasDamageIndicator && _damageIndicatorShowTime > 0)
+            if (_hasDamageIndicator)
             {
-                _damageIndicatorShowTime -= Time.deltaTime;
-                _damageIndicatorImage.color = new Color(
-                    _damageIndicatorImage.color.r, 
-                    _damageIndicatorImage.color.g, 
-                    _damageIndicatorImage.color.b,
-                    _damageIndicatorImage.color.a - 0.2f * Time.deltaTime);
-            }
-            else
-            {
-                damageIndicator.SetActive(false);
+                if(_damageIndicatorShowTime > 0)
+                {
+                    _damageIndicatorShowTime -= Time.deltaTime;
+                    _damageIndicatorImage.color = new Color(
+                        _damageIndicatorImage.color.r, 
+                        _damageIndicatorImage.color.g, 
+                        _damageIndicatorImage.color.b,
+                        _damageIndicatorImage.color.a - 0.2f * Time.deltaTime);
+                }
+                else
+                {
+                    damageIndicator.SetActive(false);
+                }
             }
         }
 
