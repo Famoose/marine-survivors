@@ -1,3 +1,4 @@
+using System.Collections;
 using Data;
 using Data.Enum;
 using Feature;
@@ -14,37 +15,43 @@ namespace Behaviour
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            GameObject target = trackingFeature.GetTarget();
+            StartCoroutine(MoveToTarget(_rigidbody, target, movementFeature));
         }
 
-        private void FixedUpdate()
+        IEnumerator MoveToTarget(Rigidbody2D rb, GameObject target, MovementFeature mf)
         {
             MovementData data = movementFeature.GetMovementData();
-            GameObject player = trackingFeature.GetTarget();
-            if (player)
+
+            while (true)
             {
-                Vector3 direction = Vector3.zero;
-                Vector3 position = transform.position;
-                
-                if (data.movementType == MovementType.Constant)
+                if (target)
                 {
-                    if (data.movement == Vector2.zero)
-                    {
-                        direction = (player.transform.position - position).normalized;
-                        movementFeature.SetMovement(direction);
-                    }
-                    else
-                    {
-                        direction = data.movement;
-                    }
-                }
-
-                if (data.movementType == MovementType.FollowTarget)
-                {
-                     direction = (player.transform.position - position).normalized;
-                }
+                    Vector3 direction = Vector3.zero;
+                    Vector3 position = transform.position;
                 
-                _rigidbody.MovePosition(position + direction * (Time.fixedDeltaTime * data.speed));
+                    if (data.movementType == MovementType.Constant)
+                    {
+                        if (data.movement == Vector2.zero)
+                        {
+                            direction = (target.transform.position - position).normalized;
+                            mf.SetMovement(direction);
+                        }
+                        else
+                        {
+                            direction = data.movement;
+                        }
+                    }
 
+                    if (data.movementType == MovementType.FollowTarget)
+                    {
+                        direction = (target.transform.position - position).normalized;
+                    }
+                
+                    rb.MovePosition(position + direction * (Time.fixedDeltaTime * data.speed));
+
+                }
+                yield return new WaitForSeconds( 0.01f);
             }
         }
     }
