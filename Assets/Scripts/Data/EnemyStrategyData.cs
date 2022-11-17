@@ -88,6 +88,7 @@ namespace Data
         public float flySpeed = 3;
         public float strategySleep = 5;
         public float lastStrategyEvaluation = 0;
+        public float startTime = 0;
         public float flyProbability = 0.2f;
         public float cutDirectionProbability = 0.5f;
         public float itemDropBaseProbability = 0.05f;

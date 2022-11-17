@@ -32,6 +32,7 @@ namespace Feature
             _data.flySpeed = strategyData.flySpeed;
             _data.strategySleep = strategyData.strategySleep;
             _data.lastStrategyEvaluation = strategyData.lastStrategyEvaluation;
+            _data.startTime = strategyData.startTime;
             _data.flyProbability = strategyData.flyProbability;
             _data.cutDirectionProbability = strategyData.cutDirectionProbability;
             _data.itemDropBaseProbability = strategyData.itemDropBaseProbability;

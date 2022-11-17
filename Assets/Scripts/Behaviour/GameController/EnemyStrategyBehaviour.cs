@@ -65,6 +65,7 @@ namespace Behaviour
 
             _enemyStrategyData = enemyStrategyFeature.GetStrategyData();
             _enemyStrategyData.lastStrategyEvaluation = Time.time;
+            _enemyStrategyData.startTime = Time.time;
         }
 
         private void Update()
@@ -72,7 +73,7 @@ namespace Behaviour
             
             if (Time.time > _enemyStrategyData.lastStrategyEvaluation + _enemyStrategyData.strategySleep && !gameStateFeature.IsGamePaused())
             {
-                float currentPlayTime = _enemyStrategyData.lastStrategyEvaluation + _enemyStrategyData.strategySleep;
+                float currentPlayTime = Time.time - _enemyStrategyData.startTime;
                 List<EnemyConfig> newEnemies = new List<EnemyConfig>();
                 int currentActiveEnemies = enemyObserverFeature.GetAllActiveEnemies().Count;
                 Vector2 playerMovementDirection = _playerMovementFeature.GetMovementData().movement;
