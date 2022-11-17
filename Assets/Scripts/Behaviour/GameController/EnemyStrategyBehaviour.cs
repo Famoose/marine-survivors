@@ -72,16 +72,17 @@ namespace Behaviour
             
             if (Time.time > _enemyStrategyData.lastStrategyEvaluation + _enemyStrategyData.strategySleep && !gameStateFeature.IsGamePaused())
             {
+                float currentPlayTime = _enemyStrategyData.lastStrategyEvaluation + _enemyStrategyData.strategySleep;
                 List<EnemyConfig> newEnemies = new List<EnemyConfig>();
                 int currentActiveEnemies = enemyObserverFeature.GetAllActiveEnemies().Count;
                 Vector2 playerMovementDirection = _playerMovementFeature.GetMovementData().movement;
-                EnemyConfig boss = CheckForBoss(playerMovementDirection, Time.time, _enemyStrategyData.baseDifficulty);
+                EnemyConfig boss = CheckForBoss(playerMovementDirection, currentPlayTime, _enemyStrategyData.baseDifficulty);
                 if (boss != null)
                 {
                     newEnemies.Add(boss);
                 }
 
-                EnemyConfig normals = CheckForEnemies(currentActiveEnemies, playerMovementDirection, Time.time,
+                EnemyConfig normals = CheckForEnemies(currentActiveEnemies, playerMovementDirection, currentPlayTime,
                     _enemyStrategyData.baseDifficulty);
                 if (normals != null)
                 {
