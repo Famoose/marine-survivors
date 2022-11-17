@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Data.Enum;
 using Feature;
 using UnityEngine;
@@ -32,7 +33,8 @@ namespace Behaviour
             if (!ComponentHasValidTag())
             {
                 //throw new ArgumentException("The projectile does not contain the 'Player Projectile'-tag");
-                throw new ArgumentException("The inflicter behaviour component does not contain a valid tag. (Player Projectile or Enemy)");
+                throw new ArgumentException(
+                    "The inflicter behaviour component does not contain a valid tag. (Player Projectile or Enemy)");
             }
         }
 
@@ -44,38 +46,80 @@ namespace Behaviour
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.collider.gameObject.CompareTag("Player Projectile"))
+            if (ShouldIgnoreCollision(collision.collider, collision.otherCollider))
             {
-                // Projectiles do not collide with each other
-                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
                 return;
             }
 
-            if (inflictDamageOnCollisionFeature.GetTypeWhichIsIgnoredForCollision() == ActiveGameObjectType.Player &&
-                collision.collider.gameObject.CompareTag("Player"))
+            var hasRadius = inflictDamageOnCollisionFeature.GetRadius();
+            if (hasRadius.HasValue)
             {
-                // Ignore collisions with the player object (no suicides here...)
-                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
-                return;
+                CreateRaidusTriggerDamage(hasRadius.Value);
+            }
+            else
+            {
+                InflictDamageOnColliderGameObject(collision.collider);
             }
 
-            if (inflictDamageOnCollisionFeature.GetTypeWhichIsIgnoredForCollision() == ActiveGameObjectType.Enemy &&
-                collision.collider.gameObject.CompareTag("Enemy"))
-            {
-                // Ignore collisions with other enemies
-                return;
-            }
-            
-            DamageableBehaviour othersDamageableBehaviour =
-                collision.collider.gameObject.GetComponent<DamageableBehaviour>();
-            if (othersDamageableBehaviour != null)
-            {
-                othersDamageableBehaviour.InflictDamage(inflictDamageOnCollisionFeature.GetDamageToInflict());
-            }
-            
+
             if (inflictDamageOnCollisionFeature.ShallDestroyAfterInflictingDamage())
             {
                 Destroy(gameObject);
+            }
+        }
+
+        bool ShouldIgnoreCollision(Collider2D collider, Collider2D otherCollider)
+        {
+            if (collider.gameObject.CompareTag("Player Projectile"))
+            {
+                // Projectiles do not collide with each other
+                Physics2D.IgnoreCollision(collider, otherCollider);
+                return true;
+            }
+
+            if (inflictDamageOnCollisionFeature.GetTypeWhichIsIgnoredForCollision() == ActiveGameObjectType.Player &&
+                collider.gameObject.CompareTag("Player"))
+            {
+                // Ignore collisions with the player object (no suicides here...)
+                Physics2D.IgnoreCollision(collider, otherCollider);
+                return true;
+            }
+
+            if (inflictDamageOnCollisionFeature.GetTypeWhichIsIgnoredForCollision() == ActiveGameObjectType.Enemy &&
+                collider.gameObject.CompareTag("Enemy"))
+            {
+                // Ignore collisions with other enemies
+                return true;
+            }
+
+            return false;
+        }
+
+        void CreateRaidusTriggerDamage(float radius)
+        {
+            var tempTriggerCollider = gameObject.AddComponent<CircleCollider2D>();
+            tempTriggerCollider.isTrigger = true;
+            tempTriggerCollider.radius = radius;
+            ContactFilter2D filter = new ContactFilter2D().NoFilter();
+            List<Collider2D> results = new List<Collider2D>();
+            tempTriggerCollider.OverlapCollider(filter, results);
+            results.ForEach(r =>
+            {
+                if(ShouldIgnoreCollision(r, tempTriggerCollider))
+                {
+                    return;
+                }
+                InflictDamageOnColliderGameObject(r);
+            });
+        }
+
+        void InflictDamageOnColliderGameObject(Collider2D collider)
+        {
+            DamageableBehaviour othersDamageableBehaviour =
+                collider.gameObject.GetComponent<DamageableBehaviour>();
+            if (othersDamageableBehaviour != null)
+            {
+                othersDamageableBehaviour.InflictDamage(inflictDamageOnCollisionFeature.GetDamageToInflict());
             }
         }
     }

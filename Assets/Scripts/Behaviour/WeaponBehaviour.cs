@@ -89,6 +89,7 @@ namespace Behaviour
             InflictDamageData inflictDamageData = ScriptableObject.CreateInstance<InflictDamageData>();
             inflictDamageData.inflictedDamage = weaponFeature.GetWeaponData().projectileInflictedDamage;
             inflictDamageData.destroyOnInflictingDamage = true;
+            inflictDamageData.radius = weaponFeature.GetWeaponData().radius;
             inflictDamageData.ignoredGameObjectType = ActiveGameObjectType.Player;
             inflictDamageOnCollisionFeature.Initialize(inflictDamageData);
         }

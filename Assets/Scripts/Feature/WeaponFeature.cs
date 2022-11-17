@@ -21,6 +21,7 @@ namespace Feature
                 coolDownTime = weaponData.coolDownTime,
                 projectileSpeed = weaponData.projectileSpeed,
                 projectileAmount = weaponData.projectileAmount,
+                radius = weaponData.radius,
                 projectileMovementType = weaponData.projectileMovementType,
                 projectileInitialMovementType = weaponData.projectileInitialMovementType,
                 projectileInitialMovementDirection = weaponData.projectileInitialMovementDirection,

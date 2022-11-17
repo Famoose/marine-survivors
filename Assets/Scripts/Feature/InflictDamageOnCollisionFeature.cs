@@ -21,6 +21,7 @@ namespace Feature
             this.inflictDamageData.inflictedDamage = inflictDamageData.inflictedDamage;
             this.inflictDamageData.destroyOnInflictingDamage = inflictDamageData.destroyOnInflictingDamage;
             this.inflictDamageData.ignoredGameObjectType = inflictDamageData.ignoredGameObjectType;
+            this.inflictDamageData.radius = inflictDamageData.radius;
             IsInitialized = true;
         }
 
@@ -49,6 +50,15 @@ namespace Feature
                 return null;
             }
             return inflictDamageData.ignoredGameObjectType;
+        }
+
+        public float? GetRadius()
+        {
+            if (!IsInitialized || inflictDamageData.radius == 0)
+            {
+                return null;
+            }
+            return inflictDamageData.radius;
         }
     }
 }

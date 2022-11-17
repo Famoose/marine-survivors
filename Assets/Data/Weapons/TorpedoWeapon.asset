@@ -18,6 +18,7 @@ MonoBehaviour:
     currentCoolDownTime: 0
     projectileSpeed: 5
     projectileAmount: 1
+    radius: 0.2
     projectileMovementType: 1
     projectileInitialMovementType: 1
     projectileInitialMovementDirection: {x: 0, y: 0}
@@ -30,6 +31,7 @@ MonoBehaviour:
     currentCoolDownTime: 0
     projectileSpeed: 6
     projectileAmount: 1
+    radius: 0.4
     projectileMovementType: 1
     projectileInitialMovementType: 1
     projectileInitialMovementDirection: {x: 0, y: 0}
@@ -42,6 +44,7 @@ MonoBehaviour:
     currentCoolDownTime: 0
     projectileSpeed: 8
     projectileAmount: 1
+    radius: 0.6
     projectileMovementType: 1
     projectileInitialMovementType: 1
     projectileInitialMovementDirection: {x: 0, y: 0}
@@ -54,6 +57,7 @@ MonoBehaviour:
     currentCoolDownTime: 0
     projectileSpeed: 8
     projectileAmount: 1
+    radius: 0.8
     projectileMovementType: 1
     projectileInitialMovementType: 1
     projectileInitialMovementDirection: {x: 0, y: 0}

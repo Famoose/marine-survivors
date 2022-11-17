@@ -1,5 +1,6 @@
 using System;
 using Data;
+using Data.Enum;
 using Feature;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -41,6 +42,10 @@ namespace Behaviour
         {
             Vector2 playerPosition = _target.transform.position;
             Debug.Log("Respawn");
+            if (enemyData.enemyConfig.movementOverride.movementType == MovementType.Constant)
+            {
+                enemyData.enemyConfig.movementOverride.movement = Vector2.zero;
+            }
             SpawnEnemy(enemyData.enemyConfig, playerPosition);
         }
 
@@ -50,7 +55,7 @@ namespace Behaviour
             if (ec != null && _target)
             {
                 Vector2 playerPosition = _target.transform.position;
-                for (int i = 0; i < ec.amount; i++)
+                for (float i = 0; i < ec.amount; i += 1)
                 {
                     SpawnEnemy(ec, playerPosition);
                 }

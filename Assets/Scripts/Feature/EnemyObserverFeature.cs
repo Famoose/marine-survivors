@@ -39,8 +39,9 @@ namespace Feature
 
         public void AddEnemy(GameObject enemy, EnemyConfig ec)
         {
-            AddOnEnemyDeathListener(enemy, () => EnemyDied(enemy));
             _data.enemies.Add(new EnemyData{enemy = enemy, enemyConfig = ec});
+            enemy.name = _data.enemies.Count.ToString();
+            AddOnEnemyDeathListener(enemy, () => EnemyDied(enemy));
         }
 
         private void EnemyDied(GameObject enemy)

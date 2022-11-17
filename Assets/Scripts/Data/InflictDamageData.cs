@@ -9,5 +9,6 @@ namespace Data
         public float inflictedDamage;
         public bool destroyOnInflictingDamage;
         public ActiveGameObjectType ignoredGameObjectType;
+        public float radius;
     }
 }

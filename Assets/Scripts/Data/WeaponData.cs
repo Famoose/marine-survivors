@@ -11,6 +11,7 @@ namespace Data
         public float currentCoolDownTime;
         public float projectileSpeed;
         public int projectileAmount;
+        public float radius;
         public MovementType projectileMovementType;
         public InitialMovementType projectileInitialMovementType;
         public Vector2 projectileInitialMovementDirection;
@@ -28,6 +29,7 @@ namespace Data
                 currentCoolDownTime = this.currentCoolDownTime,
                 projectileSpeed = this.projectileSpeed,
                 projectileAmount = this.projectileAmount,
+                radius = this.radius,
                 projectileMovementType = this.projectileMovementType,
                 projectileInitialMovementType = this.projectileInitialMovementType,
                 projectileInitialMovementDirection = this.projectileInitialMovementDirection,
