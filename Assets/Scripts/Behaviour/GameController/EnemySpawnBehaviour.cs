@@ -64,7 +64,8 @@ namespace Behaviour
 
         private void SpawnEnemy(EnemyConfig ec, Vector2 playerPosition)
         {
-            Vector2 direction = ec.direction;
+            //make sure direction is normalized
+            Vector2 direction = ec.direction.normalized;
             if (direction == Vector2.zero)
             {
                 direction = Random.insideUnitCircle.normalized;

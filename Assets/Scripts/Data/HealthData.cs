@@ -8,5 +8,6 @@ namespace Data
         public float health = 100;
         public float maxHealth = 100;
         public bool shouldDestroyOnDeath = true;
+        public bool isDead = false;
     }
 }

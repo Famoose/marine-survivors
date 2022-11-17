@@ -23,6 +23,7 @@ namespace Feature
             _healthData.health = healthData.health;
             _healthData.maxHealth = healthData.maxHealth;
             _healthData.shouldDestroyOnDeath = healthData.shouldDestroyOnDeath;
+            _healthData.isDead = healthData.isDead;
 
             IsInitialized = true;
         }
@@ -97,9 +98,10 @@ namespace Feature
 
         private void CheckForDeath()
         {
-            if (_healthData.health <= 0)
+            if (_healthData.health <= 0 && !_healthData.isDead)
             {
                 _healthData.health = 0;
+                _healthData.isDead = true;
                 onDeath.Invoke();
             }
         }
