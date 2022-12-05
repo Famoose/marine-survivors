@@ -29,7 +29,7 @@ MonoBehaviour:
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
   - levelDescription: Faster cooldown, wider damage radius
-    coolDownTime: 1
+    coolDownTime: 1.5
     currentCoolDownTime: 0
     projectileSpeed: 5
     projectileAmount: 1
@@ -43,10 +43,10 @@ MonoBehaviour:
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
   - levelDescription: More damage and projectiles
-    coolDownTime: 1
+    coolDownTime: 1.5
     currentCoolDownTime: 0
     projectileSpeed: 5
-    projectileAmount: 3
+    projectileAmount: 2
     radius: 0.4
     projectileMovementType: 1
     projectileInitialMovementType: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
   - levelDescription: Faster cooldown and projectile speed
-    coolDownTime: 0.5
+    coolDownTime: 1
     currentCoolDownTime: 0
     projectileSpeed: 8
     projectileAmount: 3
@@ -71,7 +71,7 @@ MonoBehaviour:
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
   - levelDescription: More damage, wider damage radius
-    coolDownTime: 0.5
+    coolDownTime: 1
     currentCoolDownTime: 0
     projectileSpeed: 8
     projectileAmount: 3
@@ -85,10 +85,10 @@ MonoBehaviour:
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
   - levelDescription: More projectiles, longer lifetime
-    coolDownTime: 0.5
+    coolDownTime: 1
     currentCoolDownTime: 0
     projectileSpeed: 8
-    projectileAmount: 5
+    projectileAmount: 4
     radius: 0.6
     projectileMovementType: 1
     projectileInitialMovementType: 1
@@ -99,10 +99,10 @@ MonoBehaviour:
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
   - levelDescription: Faster cooldown, more damage
-    coolDownTime: 0.3
+    coolDownTime: 0.8
     currentCoolDownTime: 0
     projectileSpeed: 8
-    projectileAmount: 5
+    projectileAmount: 4
     radius: 0.6
     projectileMovementType: 1
     projectileInitialMovementType: 1
