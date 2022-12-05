@@ -269,6 +269,7 @@ MonoBehaviour:
   healthFeature: {fileID: -7125203159191130109}
   abilityFeature: {fileID: 0}
   damageReductionModification: {fileID: 0}
+  damageIndicator: {fileID: 0}
 --- !u!114 &-7125203159191130109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,4 +390,4 @@ MonoBehaviour:
   - {x: -0.007529128, y: -0.05036983, z: 0}
   m_ShapePathHash: 643437430
   m_Mesh: {fileID: 0}
-  m_InstanceId: 50592
+  m_InstanceId: 52820

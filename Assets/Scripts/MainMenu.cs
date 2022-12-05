@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Slider difficultySlider;
     [SerializeField] private TextMeshProUGUI difficultyValue;
     [SerializeField] private Button startButton;
+    [SerializeField] private Button exitButton;
     [SerializeField] private EnemyStrategyData enemyStrategyData;
     [SerializeField] private String levelName;
     
@@ -19,6 +20,7 @@ public class MainMenu : MonoBehaviour
         SetDifficultyValue(difficultySlider.value);
         difficultySlider.onValueChanged.AddListener(SetDifficultyValue);
         startButton.onClick.AddListener(StartGame);
+        exitButton.onClick.AddListener(ExitGame);
     }
 
     void SetDifficultyValue(float value)
@@ -31,6 +33,11 @@ public class MainMenu : MonoBehaviour
     void StartGame()
     {
         SceneManager.LoadScene(levelName);
+    }
+
+    void ExitGame()
+    {
+        Application.Quit();
     }
     
 }

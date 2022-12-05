@@ -16,4 +16,4 @@ MonoBehaviour:
   experiencePointsCurrentLevel: 0
   experiencePointsTotal: 0
   levelCalcParam: 40
-  levelCalcConstant: 10
+  levelCalcConstant: 5
