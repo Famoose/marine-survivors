@@ -14,24 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviourModification: {fileID: 11400000, guid: a785999456ef3644b829549faf544f5c, type: 2}
   valueModifiers:
-  - value: 10
+  - levelDescription: Increases max health by 10
+    value: 10
     type: 1
-  - value: 20
+  - levelDescription: Increases max health by 20
+    value: 20
     type: 1
-  - value: 30
+  - levelDescription: Increases max health by 30
+    value: 30
     type: 1
-  - value: 40
+  - levelDescription: Increases max health by 40
+    value: 40
     type: 1
-  - value: 50
+  - levelDescription: Increases max health by 50
+    value: 50
     type: 1
-  - value: 60
+  - levelDescription: Increases max health by 60
+    value: 60
     type: 1
-  - value: 70
+  - levelDescription: Increases max health by 70
+    value: 70
     type: 1
-  - value: 80
+  - levelDescription: Increases max health by 80
+    value: 80
     type: 1
-  - value: 90
+  - levelDescription: Increases max health by 90
+    value: 90
     type: 1
-  - value: 100
+  - levelDescription: Increases max health by 100
+    value: 100
     type: 1
   abilityName: Max health increaser

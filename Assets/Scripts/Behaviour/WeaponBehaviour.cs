@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Data;
 using Data.Enum;
 using Feature;
@@ -39,59 +40,62 @@ namespace Behaviour
 
         private void WeaponFeatureOnCooledDown(object sender, EventArgs e)
         {
-            for (int i = 0; i < weaponFeature.GetWeaponData().projectileAmount; i++)
-            {
-                ShootProjectile();
-            }
+            StartCoroutine(ShootProjectiles());
         }
 
-        private void ShootProjectile()
-        { 
-            GameObject projectile = Instantiate(weaponFeature.GetProjectilePrefab(), _currentTransform);
-            projectile.transform.parent = _currentTransform.parent.parent;
-            DisappearingBehaviour disappearingBehaviour = projectile.GetComponent<DisappearingBehaviour>();
-            if (disappearingBehaviour == null)
-            {
-                Destroy(projectile);
-                throw new ArgumentException("The instantiated projectile does not contain a DisappearingBehaviour.");
-            }
-            MovementBehaviour movementBehaviour = projectile.GetComponent<MovementBehaviour>();
-            if (movementBehaviour == null)
-            {
-                Destroy(projectile);
-                throw new ArgumentException("The instantiated projectile does not contain a MovementBehaviour.");
-            }
-            InflictDamageOnCollisionBehaviour inflictDamageOnCollisionBehaviour =
-                projectile.GetComponent<InflictDamageOnCollisionBehaviour>();
-            if (inflictDamageOnCollisionBehaviour == null)
-            {
-                Destroy(projectile);
-                throw new ArgumentException("The instantiated projectile does not contain a InflictDamageOnCollisionBehaviour.");
-            }
-            
-            // Features are null-checked at their corresponding behaviours
-            ReducibleFeature reducibleFeature = disappearingBehaviour.GetReducibleFeature();
-            MovementFeature movementFeature = movementBehaviour.GetMovementFeature();
-            InflictDamageOnCollisionFeature inflictDamageOnCollisionFeature =
-                inflictDamageOnCollisionBehaviour.GetInflictDamageOnCollisionFeature();
+        private IEnumerator ShootProjectiles()
+        {
+            for (int i = 0; i < weaponFeature.GetWeaponData().projectileAmount; i++)
+            { 
+                GameObject projectile = Instantiate(weaponFeature.GetProjectilePrefab(), _currentTransform);
+                projectile.transform.parent = _currentTransform.parent.parent;
+                DisappearingBehaviour disappearingBehaviour = projectile.GetComponent<DisappearingBehaviour>();
+                if (disappearingBehaviour == null)
+                {
+                    Destroy(projectile);
+                    throw new ArgumentException("The instantiated projectile does not contain a DisappearingBehaviour.");
+                }
+                MovementBehaviour movementBehaviour = projectile.GetComponent<MovementBehaviour>();
+                if (movementBehaviour == null)
+                {
+                    Destroy(projectile);
+                    throw new ArgumentException("The instantiated projectile does not contain a MovementBehaviour.");
+                }
+                InflictDamageOnCollisionBehaviour inflictDamageOnCollisionBehaviour =
+                    projectile.GetComponent<InflictDamageOnCollisionBehaviour>();
+                if (inflictDamageOnCollisionBehaviour == null)
+                {
+                    Destroy(projectile);
+                    throw new ArgumentException("The instantiated projectile does not contain a InflictDamageOnCollisionBehaviour.");
+                }
+                
+                // Features are null-checked at their corresponding behaviours
+                ReducibleFeature reducibleFeature = disappearingBehaviour.GetReducibleFeature();
+                MovementFeature movementFeature = movementBehaviour.GetMovementFeature();
+                InflictDamageOnCollisionFeature inflictDamageOnCollisionFeature =
+                    inflictDamageOnCollisionBehaviour.GetInflictDamageOnCollisionFeature();
 
-            ReducibleData reducibleData = ScriptableObject.CreateInstance<ReducibleData>();
-            reducibleData.value = weaponFeature.GetWeaponData().projectileLifetime;
-            reducibleFeature.Initialize(reducibleData);
+                ReducibleData reducibleData = ScriptableObject.CreateInstance<ReducibleData>();
+                reducibleData.value = weaponFeature.GetWeaponData().projectileLifetime;
+                reducibleFeature.Initialize(reducibleData);
 
-            MovementData movementData = ScriptableObject.CreateInstance<MovementData>();
-            movementData.movement = weaponFeature.GetWeaponData().projectileInitialMovementDirection;
-            movementData.speed = weaponFeature.GetWeaponData().projectileSpeed;
-            movementData.movementType = weaponFeature.GetWeaponData().projectileMovementType;
-            movementData.initialMovementType = weaponFeature.GetWeaponData().projectileInitialMovementType;
-            movementFeature.Initialize(movementData, transform.parent.localScale);
+                MovementData movementData = ScriptableObject.CreateInstance<MovementData>();
+                movementData.movement = weaponFeature.GetWeaponData().projectileInitialMovementDirection;
+                movementData.speed = weaponFeature.GetWeaponData().projectileSpeed;
+                movementData.movementType = weaponFeature.GetWeaponData().projectileMovementType;
+                movementData.initialMovementType = weaponFeature.GetWeaponData().projectileInitialMovementType;
+                movementFeature.Initialize(movementData, transform.parent.localScale);
 
-            InflictDamageData inflictDamageData = ScriptableObject.CreateInstance<InflictDamageData>();
-            inflictDamageData.inflictedDamage = weaponFeature.GetWeaponData().projectileInflictedDamage;
-            inflictDamageData.destroyOnInflictingDamage = true;
-            inflictDamageData.radius = weaponFeature.GetWeaponData().radius;
-            inflictDamageData.ignoredGameObjectType = ActiveGameObjectType.Player;
-            inflictDamageOnCollisionFeature.Initialize(inflictDamageData);
+                InflictDamageData inflictDamageData = ScriptableObject.CreateInstance<InflictDamageData>();
+                inflictDamageData.inflictedDamage = weaponFeature.GetWeaponData().projectileInflictedDamage;
+                inflictDamageData.destroyOnInflictingDamage = true;
+                inflictDamageData.radius = weaponFeature.GetWeaponData().radius;
+                inflictDamageData.ignoredGameObjectType = ActiveGameObjectType.Player;
+                inflictDamageOnCollisionFeature.Initialize(inflictDamageData);
+
+                // Wait a short time to shoot the next projectile
+                yield return new WaitForSeconds(0.1f);   
+            }
         }
     }
 }

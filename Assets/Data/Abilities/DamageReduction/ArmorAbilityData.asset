@@ -14,14 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviourModification: {fileID: 11400000, guid: b84f0aa07ab1f214e8169aab81b5f692, type: 2}
   valueModifiers:
-  - value: 0.1
+  - levelDescription: Reduces enemy damage by 10%
+    value: 0.1
     type: 0
-  - value: 0.2
+  - levelDescription: Reduces enemy damage by 20%
+    value: 0.2
     type: 0
-  - value: 0.3
+  - levelDescription: Reduces enemy damage by 30%
+    value: 0.3
     type: 0
-  - value: 0.4
+  - levelDescription: Reduces enemy damage by 40%
+    value: 0.4
     type: 0
-  - value: 0.5
+  - levelDescription: Reduces enemy damage by 50%
+    value: 0.5
     type: 0
   abilityName: Armor

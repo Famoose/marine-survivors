@@ -14,55 +14,101 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Mine Spawner
   perLevelWeaponData:
-  - coolDownTime: 10
+  - levelDescription: Plants mines as traps for enemies
+    coolDownTime: 10
     currentCoolDownTime: 0
     projectileSpeed: 2
     projectileAmount: 1
-    radius: 0.5
+    radius: 0.8
     projectileMovementType: 3
     projectileInitialMovementType: 0
     projectileInitialMovementDirection: {x: 0, y: -1}
-    projectileLifetime: 20
+    projectileLifetime: 5
+    projectileInflictedDamage: 50
+    prefab: {fileID: 7528046816562985523, guid: b605a00863987fe499321472cfc235ca, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: 15bb51533bea4aa43bd1a36ed03ffc32, type: 3}
+    weaponPositionOffset: {x: 0.2, y: -0.2, z: 0}
+  - levelDescription: More damage, wider damage radius
+    coolDownTime: 10
+    currentCoolDownTime: 0
+    projectileSpeed: 2
+    projectileAmount: 1
+    radius: 1
+    projectileMovementType: 3
+    projectileInitialMovementType: 0
+    projectileInitialMovementDirection: {x: 0, y: -1}
+    projectileLifetime: 5
     projectileInflictedDamage: 60
     prefab: {fileID: 7528046816562985523, guid: b605a00863987fe499321472cfc235ca, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: 15bb51533bea4aa43bd1a36ed03ffc32, type: 3}
     weaponPositionOffset: {x: 0.2, y: -0.2, z: 0}
-  - coolDownTime: 8
+  - levelDescription: Faster projectiles with longer lifetime
+    coolDownTime: 10
     currentCoolDownTime: 0
-    projectileSpeed: 2
+    projectileSpeed: 3
     projectileAmount: 1
-    radius: 0.7
+    radius: 1
     projectileMovementType: 3
     projectileInitialMovementType: 0
     projectileInitialMovementDirection: {x: 0, y: -1}
-    projectileLifetime: 20
+    projectileLifetime: 8
+    projectileInflictedDamage: 60
+    prefab: {fileID: 7528046816562985523, guid: b605a00863987fe499321472cfc235ca, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: 15bb51533bea4aa43bd1a36ed03ffc32, type: 3}
+    weaponPositionOffset: {x: 0.2, y: -0.2, z: 0}
+  - levelDescription: Faster cooldown, more projectiles
+    coolDownTime: 8
+    currentCoolDownTime: 0
+    projectileSpeed: 3
+    projectileAmount: 2
+    radius: 1
+    projectileMovementType: 3
+    projectileInitialMovementType: 0
+    projectileInitialMovementDirection: {x: 0, y: -1}
+    projectileLifetime: 8
+    projectileInflictedDamage: 60
+    prefab: {fileID: 7528046816562985523, guid: b605a00863987fe499321472cfc235ca, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: 15bb51533bea4aa43bd1a36ed03ffc32, type: 3}
+    weaponPositionOffset: {x: 0.2, y: -0.2, z: 0}
+  - levelDescription: More damage, longer projectile lifetime
+    coolDownTime: 8
+    currentCoolDownTime: 0
+    projectileSpeed: 3
+    projectileAmount: 2
+    radius: 1
+    projectileMovementType: 3
+    projectileInitialMovementType: 0
+    projectileInitialMovementDirection: {x: 0, y: -1}
+    projectileLifetime: 10
     projectileInflictedDamage: 80
     prefab: {fileID: 7528046816562985523, guid: b605a00863987fe499321472cfc235ca, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: 15bb51533bea4aa43bd1a36ed03ffc32, type: 3}
     weaponPositionOffset: {x: 0.2, y: -0.2, z: 0}
-  - coolDownTime: 6
+  - levelDescription: More projectiles, wider damage radius
+    coolDownTime: 8
     currentCoolDownTime: 0
     projectileSpeed: 3
-    projectileAmount: 1
-    radius: 0.9
+    projectileAmount: 4
+    radius: 1.2
     projectileMovementType: 3
     projectileInitialMovementType: 0
     projectileInitialMovementDirection: {x: 0, y: -1}
-    projectileLifetime: 25
-    projectileInflictedDamage: 110
+    projectileLifetime: 10
+    projectileInflictedDamage: 80
     prefab: {fileID: 7528046816562985523, guid: b605a00863987fe499321472cfc235ca, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: 15bb51533bea4aa43bd1a36ed03ffc32, type: 3}
     weaponPositionOffset: {x: 0.2, y: -0.2, z: 0}
-  - coolDownTime: 3
+  - levelDescription: Faster cooldown, more damage
+    coolDownTime: 6
     currentCoolDownTime: 0
     projectileSpeed: 3
-    projectileAmount: 1
-    radius: 1.1
+    projectileAmount: 4
+    radius: 1.2
     projectileMovementType: 3
     projectileInitialMovementType: 0
     projectileInitialMovementDirection: {x: 0, y: -1}
-    projectileLifetime: 30
-    projectileInflictedDamage: 140
+    projectileLifetime: 10
+    projectileInflictedDamage: 100
     prefab: {fileID: 7528046816562985523, guid: b605a00863987fe499321472cfc235ca, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: 15bb51533bea4aa43bd1a36ed03ffc32, type: 3}
     weaponPositionOffset: {x: 0.2, y: -0.2, z: 0}

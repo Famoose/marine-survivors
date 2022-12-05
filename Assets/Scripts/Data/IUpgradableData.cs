@@ -4,6 +4,8 @@ namespace Data
     {
         string GetName();
         int GetLevel();
+        string GetCurrentLevelDescription();
+        string GetNextLevelDescription();
         void IncreaseLevel();
         int GetMaxLevel();
         bool IsMaxLevel();

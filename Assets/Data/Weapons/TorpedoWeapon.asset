@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Torpedo
   perLevelWeaponData:
-  - coolDownTime: 2
+  - levelDescription: Shoots projectiles horizontally
+    coolDownTime: 2
     currentCoolDownTime: 0
     projectileSpeed: 5
     projectileAmount: 1
@@ -27,42 +28,87 @@ MonoBehaviour:
     prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
-  - coolDownTime: 1
+  - levelDescription: Faster cooldown, wider damage radius
+    coolDownTime: 1
     currentCoolDownTime: 0
-    projectileSpeed: 6
+    projectileSpeed: 5
     projectileAmount: 1
     radius: 0.4
     projectileMovementType: 1
     projectileInitialMovementType: 1
     projectileInitialMovementDirection: {x: 0, y: 0}
-    projectileLifetime: 6
+    projectileLifetime: 5
+    projectileInflictedDamage: 50
+    prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - levelDescription: More damage and projectiles
+    coolDownTime: 1
+    currentCoolDownTime: 0
+    projectileSpeed: 5
+    projectileAmount: 3
+    radius: 0.4
+    projectileMovementType: 1
+    projectileInitialMovementType: 1
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 5
     projectileInflictedDamage: 70
     prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
-  - coolDownTime: 0.5
+  - levelDescription: Faster cooldown and projectile speed
+    coolDownTime: 0.5
     currentCoolDownTime: 0
     projectileSpeed: 8
-    projectileAmount: 1
+    projectileAmount: 3
+    radius: 0.4
+    projectileMovementType: 1
+    projectileInitialMovementType: 1
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 5
+    projectileInflictedDamage: 70
+    prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - levelDescription: More damage, wider damage radius
+    coolDownTime: 0.5
+    currentCoolDownTime: 0
+    projectileSpeed: 8
+    projectileAmount: 3
     radius: 0.6
     projectileMovementType: 1
     projectileInitialMovementType: 1
     projectileInitialMovementDirection: {x: 0, y: 0}
-    projectileLifetime: 6
+    projectileLifetime: 5
     projectileInflictedDamage: 90
     prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
-  - coolDownTime: 0.2
+  - levelDescription: More projectiles, longer lifetime
+    coolDownTime: 0.5
     currentCoolDownTime: 0
     projectileSpeed: 8
-    projectileAmount: 1
-    radius: 0.8
+    projectileAmount: 5
+    radius: 0.6
     projectileMovementType: 1
     projectileInitialMovementType: 1
     projectileInitialMovementDirection: {x: 0, y: 0}
-    projectileLifetime: 8
-    projectileInflictedDamage: 110
+    projectileLifetime: 7
+    projectileInflictedDamage: 90
+    prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - levelDescription: Faster cooldown, more damage
+    coolDownTime: 0.3
+    currentCoolDownTime: 0
+    projectileSpeed: 8
+    projectileAmount: 5
+    radius: 0.6
+    projectileMovementType: 1
+    projectileInitialMovementType: 1
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 7
+    projectileInflictedDamage: 100
     prefab: {fileID: 7528046816562985523, guid: a199f6d090d9e5542a96db83cf207a5b, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b0d0ca3e297f6cf4bbf38cfa8ef45a6f, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}

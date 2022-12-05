@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Super Spreader
   perLevelWeaponData:
-  - coolDownTime: 3
+  - levelDescription: Shoots projectiles randomly
+    coolDownTime: 3
     currentCoolDownTime: 0
-    projectileSpeed: 10
+    projectileSpeed: 8
     projectileAmount: 3
+    radius: 0
     projectileMovementType: 1
     projectileInitialMovementType: 2
     projectileInitialMovementDirection: {x: 0, y: 0}
@@ -26,39 +28,87 @@ MonoBehaviour:
     prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
-  - coolDownTime: 2
+  - levelDescription: Faster cooldown and projectiles
+    coolDownTime: 2
     currentCoolDownTime: 0
     projectileSpeed: 10
     projectileAmount: 3
+    radius: 0
     projectileMovementType: 1
     projectileInitialMovementType: 2
     projectileInitialMovementDirection: {x: 0, y: 0}
-    projectileLifetime: 3
+    projectileLifetime: 2
+    projectileInflictedDamage: 50
+    prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - levelDescription: More damage, longer lifetime
+    coolDownTime: 2
+    currentCoolDownTime: 0
+    projectileSpeed: 10
+    projectileAmount: 3
+    radius: 0
+    projectileMovementType: 1
+    projectileInitialMovementType: 2
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 4
+    projectileInflictedDamage: 60
+    prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - levelDescription: More projectiles
+    coolDownTime: 2
+    currentCoolDownTime: 0
+    projectileSpeed: 10
+    projectileAmount: 6
+    radius: 0
+    projectileMovementType: 1
+    projectileInitialMovementType: 2
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 4
+    projectileInflictedDamage: 60
+    prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - levelDescription: Introduces area damage
+    coolDownTime: 2
+    currentCoolDownTime: 0
+    projectileSpeed: 10
+    projectileAmount: 6
+    radius: 0.5
+    projectileMovementType: 1
+    projectileInitialMovementType: 2
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 4
+    projectileInflictedDamage: 60
+    prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
+    projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
+    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
+  - levelDescription: Faster projectiles, more damage
+    coolDownTime: 2
+    currentCoolDownTime: 0
+    projectileSpeed: 12
+    projectileAmount: 6
+    radius: 0.5
+    projectileMovementType: 1
+    projectileInitialMovementType: 2
+    projectileInitialMovementDirection: {x: 0, y: 0}
+    projectileLifetime: 4
     projectileInflictedDamage: 70
     prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
-  - coolDownTime: 1
-    currentCoolDownTime: 0
-    projectileSpeed: 10
-    projectileAmount: 5
-    projectileMovementType: 1
-    projectileInitialMovementType: 2
-    projectileInitialMovementDirection: {x: 0, y: 0}
-    projectileLifetime: 3
-    projectileInflictedDamage: 90
-    prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
-    projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
-    weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}
-  - coolDownTime: 0.8
+  - levelDescription: More projectiles, wieder damage radius
+    coolDownTime: 2
     currentCoolDownTime: 0
     projectileSpeed: 12
-    projectileAmount: 7
+    projectileAmount: 9
+    radius: 0.8
     projectileMovementType: 1
     projectileInitialMovementType: 2
     projectileInitialMovementDirection: {x: 0, y: 0}
-    projectileLifetime: 3
-    projectileInflictedDamage: 90
+    projectileLifetime: 4
+    projectileInflictedDamage: 70
     prefab: {fileID: 7528046816562985523, guid: 084926775c19928418bab52a960a35dd, type: 3}
     projectilePrefab: {fileID: 2255925786901577691, guid: b71a5d662141b76408f718f9b7987d76, type: 3}
     weaponPositionOffset: {x: -0.7, y: -0.5, z: 0}

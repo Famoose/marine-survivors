@@ -7,6 +7,7 @@ namespace Data
     [Serializable]
     public class WeaponData
     {
+        public string levelDescription;
         public float coolDownTime;
         public float currentCoolDownTime;
         public float projectileSpeed;
@@ -25,6 +26,7 @@ namespace Data
         {
             return new WeaponData
             {
+                levelDescription = this.levelDescription,
                 coolDownTime = this.coolDownTime,
                 currentCoolDownTime = this.currentCoolDownTime,
                 projectileSpeed = this.projectileSpeed,

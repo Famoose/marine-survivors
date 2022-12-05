@@ -14,14 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviourModification: {fileID: 11400000, guid: 4a8528c14b58a5744822dd774a4eff6b, type: 2}
   valueModifiers:
-  - value: 1.1
+  - levelDescription: Increses movement speed by 10%
+    value: 1.1
     type: 0
-  - value: 1.2
+  - levelDescription: Increses movement speed by 20%
+    value: 1.2
     type: 0
-  - value: 1.3
+  - levelDescription: Increses movement speed by 30%
+    value: 1.3
     type: 0
-  - value: 1.4
+  - levelDescription: Increses movement speed by 40%
+    value: 1.4
     type: 0
-  - value: 1.5
+  - levelDescription: Increses movement speed by 50%
+    value: 1.5
     type: 0
-  abilityName: Walk speed
+  abilityName: Speed

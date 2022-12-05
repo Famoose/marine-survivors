@@ -21,6 +21,18 @@ namespace Data
             return _level;
         }
 
+        public string GetCurrentLevelDescription()
+        {
+            return GetCurrentLevelsWeaponData()?.levelDescription;
+        }
+
+        public string GetNextLevelDescription()
+        {
+            return IsMaxLevel()
+                ? string.Empty
+                : perLevelWeaponData[_level + 1]?.levelDescription;
+        }
+
         public void IncreaseLevel()
         {
             if (_level == GetMaxLevel())

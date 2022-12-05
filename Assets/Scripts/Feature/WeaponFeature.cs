@@ -16,20 +16,7 @@ namespace Feature
                 throw new ArgumentException("The weapon data is not set.");
             }
 
-            _weaponData = new WeaponData
-            {
-                coolDownTime = weaponData.coolDownTime,
-                projectileSpeed = weaponData.projectileSpeed,
-                projectileAmount = weaponData.projectileAmount,
-                radius = weaponData.radius,
-                projectileMovementType = weaponData.projectileMovementType,
-                projectileInitialMovementType = weaponData.projectileInitialMovementType,
-                projectileInitialMovementDirection = weaponData.projectileInitialMovementDirection,
-                projectileLifetime = weaponData.projectileLifetime,
-                projectileInflictedDamage = weaponData.projectileInflictedDamage,
-                prefab = weaponData.prefab,
-                projectilePrefab = weaponData.projectilePrefab
-            };
+            _weaponData = weaponData.Copy();
             ResetCurrentCoolDownValue();
             IsInitialized = true;
         }

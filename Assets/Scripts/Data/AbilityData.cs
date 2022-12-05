@@ -13,6 +13,7 @@ namespace Data
     [Serializable]
     public class ValueModifier
     {
+        public string levelDescription;
         public float value;
         public ValueModifierType type;
 
@@ -20,6 +21,7 @@ namespace Data
         {
             return new ValueModifier
             {
+                levelDescription = this.levelDescription,
                 value = this.value,
                 type = this.type
             };
@@ -42,6 +44,18 @@ namespace Data
         public int GetLevel()
         {
             return _level;
+        }
+
+        public string GetCurrentLevelDescription()
+        {
+            return GetValueModifier()?.levelDescription;
+        }
+
+        public string GetNextLevelDescription()
+        {
+            return IsMaxLevel()
+                ? string.Empty
+                : valueModifiers[_level + 1]?.levelDescription;
         }
 
         public void IncreaseLevel()

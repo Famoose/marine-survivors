@@ -16,9 +16,10 @@ namespace Behaviour
         [SerializeField] private GameStateFeature gameStateFeature;
         private OwnedWeaponFeature _ownedWeaponFeature;
         private AbilityFeature _abilityFeature;
-        private List<GameObject> _chooseOptionButtons;
+        private List<GameObject> _chooseOptionParents;
         private List<GameObject> _optionTitleTexts;
         private List<GameObject> _optionDescTexts;
+        private List<GameObject> _optionWeaponTexts;
         private List<UpgradeOption> _upgradeOptions;
 
         public void PrepareMenu(OwnedWeaponFeature ownedWeaponFeature, AbilityFeature abilityFeature)
@@ -79,38 +80,52 @@ namespace Behaviour
                 if (!possibleUpgradeOptions.Any())
                 {
                     // Nothing left to upgrade...
-                    _optionTitleTexts[i].GetComponent<TextMeshProUGUI>().text = "Nothing";
-                    _optionDescTexts[i].GetComponent<TextMeshProUGUI>().text = "-";
+                    _chooseOptionParents[i].SetActive(false);
                     continue;
                 }
-
+                
                 UpgradeOption randomOption = possibleUpgradeOptions[Random.Range(0, possibleUpgradeOptions.Count)];
                 possibleUpgradeOptions.Remove(randomOption);
                 _upgradeOptions.Add(randomOption);
+                _chooseOptionParents[i].SetActive(true);
                 _optionTitleTexts[i].GetComponent<TextMeshProUGUI>().text = randomOption.UpgradableData.GetName();
                 _optionDescTexts[i].GetComponent<TextMeshProUGUI>().text =
                     randomOption.UpgradeType is UpgradeType.ActivateNewAbility or UpgradeType.ActivateNewWeapon
                         ? "New"
                         : $"Upgrade to level {randomOption.UpgradableData.GetLevel() + 2}";
+                _optionWeaponTexts[i].GetComponent<TextMeshProUGUI>().text =
+                    randomOption.UpgradeType is UpgradeType.ActivateNewAbility or UpgradeType.ActivateNewWeapon
+                        ? randomOption.UpgradableData.GetCurrentLevelDescription()
+                        : randomOption.UpgradableData.GetNextLevelDescription();
+            }
+
+            if (!_upgradeOptions.Any())
+            {
+                // No options left to update. Hide menu to silently level up
+                HideMenuAndUnpauseGame();
             }
         }
         
         public void Start()
         {
-            _chooseOptionButtons = new List<GameObject>();
+            _chooseOptionParents = new List<GameObject>();
             _optionTitleTexts = new List<GameObject>();
             _optionDescTexts = new List<GameObject>();
+            _optionWeaponTexts = new List<GameObject>();
             for (int i = 0; i < MAX_OPTIONS; i++)
             {
-                GameObject button = transform.Find($"LevelUpMenu/ChooseOption{i}Button").gameObject;
-                GameObject title = transform.Find($"LevelUpMenu/Option{i}TitleText").gameObject;
-                GameObject description = transform.Find($"LevelUpMenu/Option{i}DescText").gameObject;
+                GameObject parent = transform.Find($"LevelUpMenu/ChooseOption{i}").gameObject;
+                GameObject button = transform.Find($"LevelUpMenu/ChooseOption{i}/ChooseOption{i}Button").gameObject;
+                GameObject title = transform.Find($"LevelUpMenu/ChooseOption{i}/Option{i}TitleText").gameObject;
+                GameObject description = transform.Find($"LevelUpMenu/ChooseOption{i}/Option{i}DescText").gameObject;
+                GameObject weaponText = transform.Find($"LevelUpMenu/ChooseOption{i}/Option{i}WeaponText").gameObject;
                 
                 int index = i;
                 button.GetComponent<Button>().onClick.AddListener(() => ChooseOption(index));
-                _chooseOptionButtons.Add(button);
+                _chooseOptionParents.Add(parent);
                 _optionTitleTexts.Add(title);
                 _optionDescTexts.Add(description);
+                _optionWeaponTexts.Add(weaponText);
             }
         }
 
@@ -118,7 +133,11 @@ namespace Behaviour
         {
             _upgradeOptions[optionIndex].PerformUpgrade();
             
-            // Hide Menu and unpause game
+            HideMenuAndUnpauseGame();
+        }
+
+        private void HideMenuAndUnpauseGame()
+        {
             gameObject.SetActive(false);
             gameStateFeature.UnpauseGame();
         }
