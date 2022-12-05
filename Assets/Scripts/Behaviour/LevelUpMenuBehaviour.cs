@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Data;
@@ -5,6 +6,7 @@ using Feature;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Behaviour
 {
@@ -80,7 +82,7 @@ namespace Behaviour
                 if (!possibleUpgradeOptions.Any())
                 {
                     // Nothing left to upgrade...
-                    _chooseOptionParents[i].SetActive(false);
+                    _chooseOptionParents[i]?.SetActive(false);
                     continue;
                 }
                 
@@ -98,14 +100,17 @@ namespace Behaviour
                         ? randomOption.UpgradableData.GetCurrentLevelDescription()
                         : randomOption.UpgradableData.GetNextLevelDescription();
             }
+        }
 
-            if (!_upgradeOptions.Any())
+        private void OnEnable()
+        {
+            if (_upgradeOptions?.Any() == false)
             {
                 // No options left to update. Hide menu to silently level up
                 HideMenuAndUnpauseGame();
             }
         }
-        
+
         public void Start()
         {
             _chooseOptionParents = new List<GameObject>();
