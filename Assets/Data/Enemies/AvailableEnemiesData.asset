@@ -37,3 +37,39 @@ MonoBehaviour:
       healthData: {fileID: 0}
       direction: {x: 0, y: 0}
       sizeMultiplier: {x: 1, y: 1}
+  - enemy: {fileID: 6632865536608531596, guid: 1797a6d3f218e0e4892540835b2e5634, type: 3}
+    enemyConfig:
+      movementOverride: {fileID: 0}
+      inflictDamageOverride: {fileID: 0}
+      lootOverride: {fileID: 0}
+      amount: 10
+      enemy: {fileID: 0}
+      timeOffset: 0
+      positionOffset: 20
+      healthData: {fileID: 0}
+      direction: {x: 0, y: 0}
+      sizeMultiplier: {x: 1, y: 1}
+  - enemy: {fileID: 6632865536608531596, guid: fb59e507e2d74324e8c70f8e7f59cfc3, type: 3}
+    enemyConfig:
+      movementOverride: {fileID: 0}
+      inflictDamageOverride: {fileID: 0}
+      lootOverride: {fileID: 0}
+      amount: 10
+      enemy: {fileID: 0}
+      timeOffset: 0
+      positionOffset: 20
+      healthData: {fileID: 0}
+      direction: {x: 0, y: 0}
+      sizeMultiplier: {x: 1, y: 1}
+  - enemy: {fileID: 6632865536608531596, guid: 26d7f59a69e9464419dc88f029d64276, type: 3}
+    enemyConfig:
+      movementOverride: {fileID: 0}
+      inflictDamageOverride: {fileID: 0}
+      lootOverride: {fileID: 0}
+      amount: 10
+      enemy: {fileID: 0}
+      timeOffset: 0
+      positionOffset: 20
+      healthData: {fileID: 0}
+      direction: {x: 0, y: 0}
+      sizeMultiplier: {x: 1, y: 1}
