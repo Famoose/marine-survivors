@@ -13,18 +13,6 @@ MonoBehaviour:
   m_Name: AvailableEnemiesData
   m_EditorClassIdentifier: 
   enemies:
-  - enemy: {fileID: 6632865536608531596, guid: c41ac9d2cf5a64809b230b5886dd194d, type: 3}
-    enemyConfig:
-      movementOverride: {fileID: 0}
-      inflictDamageOverride: {fileID: 0}
-      lootOverride: {fileID: 0}
-      amount: 10
-      enemy: {fileID: 0}
-      timeOffset: 0
-      positionOffset: 20
-      healthData: {fileID: 0}
-      direction: {x: 0, y: 0}
-      sizeMultiplier: {x: 1, y: 1}
   - enemy: {fileID: 6632865536608531596, guid: f25a796a633ff224eb3dc40def3865d0, type: 3}
     enemyConfig:
       movementOverride: {fileID: 0}
